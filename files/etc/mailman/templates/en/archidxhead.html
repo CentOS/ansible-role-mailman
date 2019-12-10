@@ -29,7 +29,7 @@
     <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="https://www.centos.org/">
-      <img src="/centos-design/images/centos-logo-white.png" height="32" alt="">
+      <img src="/centos-design/images/centos-logo-white.png" height="32" alt="CentOS">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -78,7 +78,7 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href=https://wiki.centos.org/Documentation?action=show&redirect=GettingHelp">Help</a>
+          <a class="nav-link" href="https://wiki.centos.org/Documentation?action=show&redirect=GettingHelp">Help</a>
         </li>
       </ul>
     </div>
@@ -88,19 +88,18 @@
     <main>
     <div class="container mt-3">
 
-      <a name="start"></A>
-      <h1>%(archive)s Archives by %(archtype)s</h1>
-      <ul>
-         <li> <b>Messages sorted by:</b>
-	        %(thread_ref)s
+    <a name="start"><h1>%(archive)s Archives by %(archtype)s</h1></a>
+    <ul>
+    <li><strong>Messages sorted by:</strong>
+    %(thread_ref)s
 		%(subject_ref)s
 		%(author_ref)s
 		%(date_ref)s
-
-	     <li><b><a href="%(listinfo)s">More info on this list...
-                    </a></b></li>
-      </ul>
-      <p><b>Starting:</b> <i>%(firstdate)s</i><br>
-         <b>Ending:</b> <i>%(lastdate)s</i><br>
-         <b>Messages:</b> %(size)s<p>
-     <ul>
+	  <li><strong><a href="%(listinfo)s">More info on this list...</a></strong></li>
+    </ul>
+    <p>
+    <strong>Starting:</strong> <em>%(firstdate)s</em><br/>
+    <strong>Ending:</strong> <em>%(lastdate)s</em><br/>
+    <strong>Messages:</strong> %(size)s
+    </p>
+    <ul>

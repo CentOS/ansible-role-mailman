@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- CentOS customization -->
+    <link href="http://centos-linux-7.local.lab/centos-style-websites/css/centos.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link href="http://centos-linux-7.local.lab/centos-style-websites/images/favicon.png" rel="icon" type="image/png" />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet">
+    <title><MM-Presentable-User> membership configuration for <MM-List-Name></title>
+  </head>
+
+  <body class="d-flex flex-column h-100">
+
+    <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="https://www.centos.org/">
+      <img src="http://centos-linux-7.local.lab/centos-style-websites/images/centos-logo-white.png" height="32" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.centos.org/download">Download</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            About
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="https://www.centos.org/about/">About CentOS</a>
+            <a class="dropdown-item" href="https://wiki.centos.org/FAQ">Frequently Asked Questions (FAQs)</a>
+            <a class="dropdown-item" href="https://wiki.centos.org/SpecialInterestGroup">Special Interest Groups (SIGs)</a>
+            <a class="dropdown-item" href="https://www.centos.org/variants/">CentOS Variants</a>
+            <a class="dropdown-item" href="https://www.centos.org/about/governance/">Governance</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Community
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="https://wiki.centos.org/Contribute">Contribute</a>
+            <a class="dropdown-item" href="https://www.centos.org/forums/">Forums</a>
+            <a class="dropdown-item" href="https://wiki.centos.org/GettingHelp/ListInfo">Mailing Lists</a>
+            <a class="dropdown-item" href="https://wiki.centos.org/irc">IRC</a>
+            <a class="dropdown-item" href="https://www.centos.org/community/calendar/">Calendar &amp; IRC Meeting List</a>
+            <a class="dropdown-item" href="http://planet.centos.org/">Planet</a>
+            <a class="dropdown-item" href="https://bugs.centos.org/">Submit a Bug</a>
+            <a class="dropdown-item" href="https://www.centos.org/community/stories/">Stories</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Documentation
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="https://wiki.centos.org/">Wiki</a>
+            <a class="dropdown-item" href="https://docs.centos.org/">Manuals</a>
+            <a class="dropdown-item" href="https://www.centos.org/keys">GPG Key Info</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://wiki.centos.org/Documentation?action=show&redirect=GettingHelp">Help</a>
+        </li>
+      </ul>
+    </div>
+    </nav>
+    </header>
+
+    <main>
+    <div class="container mt-3">
+    <h1><MM-List-Name> mailing list membership configuration for <MM-Presentable-User></h1>
+
+    <div class="row">
+      <div class="col">
+        <b><MM-Presentable-User></b>'s subscription status, password, and
+          options for the <MM-List-Name> mailing list.
+      </div>
+      <div class="col">
+        <MM-Form-Start><mm-logout-button><MM-Form-End>
+      </div>
+    </div>
+    <div class="row">
+      <MM-Case-Preserved-User>
+      <MM-Disabled-Notice>
+      <p><mm-results>
+    </div>
+
+
+<MM-Form-Start>
+  <table class="table"> 
+    <tr><td colspan="2">You can change the address that you are subscribed
+        to the mailing list with by entering the new address in the
+        fields below.  Note that a confirmation email will be sent to
+        the new address, and the change must be confirmed before it is
+        processed.
+
+        <p>Confirmations time out after about <mm-pending-days>.
+
+        <p>You can also optionally set or change your real name
+        (i.e. <em>John Smith</em>).
+
+        <p>If you want to make the membership changes for all the
+        lists that you are subscribed to at <mm-host>, turn on the
+        <em>Change globally</em> check box.
+
+        </td></tr>
+    <tr><td><center>
+        <table border="0" cellspacing="2" cellpadding="2" width="80%" cols="2">
+        <tr><td bgcolor="#dddddd"><div align="right">New address:</div></td>
+            <td><mm-new-address-box></td>
+            </tr>
+        <tr><td bgcolor="#dddddd"><div align="right">Again to
+            confirm:</div></td> 
+            <td><mm-confirm-address-box></td>
+            </tr>
+        </tr></table></center>
+        </td>
+        <td><center>
+        <table border="0" cellspacing="2" cellpadding="2" width="80%" cols="2">
+            <tr><td bgcolor="#dddddd"><div align="right">Your name
+            (optional):</div></td>
+            <td><mm-fullname-box></td>
+            </tr>
+        </table></center>
+        </td>
+        </tr>
+    <tr><td colspan="2"><center><mm-change-address-button>
+        <p><mm-global-change-of-address>Change globally</center></td>
+    </tr>
+</table>
+
+<p>
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="5" CELLPADDING="5">
+    <TR><TD WIDTH="50%" BGCOLOR="#FFF0D0"><FONT COLOR="#000000">
+        <B>Unsubscribing from <MM-List-Name></B></td>
+
+        <TD WIDTH="50%" BGCOLOR="#FFF0D0"><FONT COLOR="#000000">
+        <B>Your other <MM-Host> subscriptions</B>
+        </FONT></TD></TR>
+
+    <tr><td>
+        Turn on the confirmation checkbox and hit this button to
+        unsubscribe from this mailing list.  <strong>Warning:</strong>
+        This action will be taken immediately!
+        <p>
+        <center><MM-Unsubscribe-Button></center></td>
+    <td>
+        You can view a list of all the other mailing lists at
+        <mm-host> for which you are a member.  Use this if you want to
+        make the same membership option changes to this other
+        subscriptions.
+
+        <p>
+        <center><MM-Other-Subscriptions-Submit></center>
+        </TD></TR>
+</table>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+    <TR><TD COLSPAN=2 WIDTH="100%" BGCOLOR="#FFF0D0"><FONT COLOR="#000000">
+        <B>Your <MM-List-Name> Password</B>
+        </FONT></TD></TR>
+
+    <tr valign="TOP"><td WIDTH="50%">
+        <a name=reminder>
+        <center>
+        <h3>Forgotten Your Password?</h3>
+        </center>
+        Click this button to have your password emailed to your
+        membership address.
+        <p><MM-Umbrella-Notice>
+        <center>
+        <MM-Email-My-Pw>
+        </center>
+        </td>
+
+    <td WIDTH="50%">
+        <a name=changepw>
+        <center>
+        <h3>Change Your Password</h3>
+        <TABLE BORDER="0" CELLSPACING="2" CELLPADDING="2" WIDTH="70%" COLS=2>
+            <TR><TD BGCOLOR="#dddddd"><div align="right">New
+                password:</div></TD>
+                <TD><MM-New-Pass-Box></TD>
+                </TR>
+            <TR>
+                <TD BGCOLOR="#dddddd"><div align="right">Again to
+                confirm:</div></TD>
+                <TD><MM-Confirm-Pass-Box></TD>
+            </TR>
+        </table>
+
+        <MM-Change-Pass-Button>
+        <p><center><mm-global-pw-changes-button>Change globally.
+        </center>
+</TABLE>
+
+<p>
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+    <TR><TD WIDTH="100%" BGCOLOR="#FFF0D0"><FONT COLOR="#000000">
+        <B>Your <MM-List-Name> Subscription Options</B>
+        </FONT></TD></TR>
+</table>
+
+<p>
+<i><strong>Current values are checked.</strong></i>
+
+<p>Note that some of the options have a <em>Set globally</em>
+checkbox.  Checking this field will cause the changes to be made to
+every mailing list that you are a member of on <mm-host>.  Click on
+<em>List my other subscriptions</em> above to see which other mailing
+lists you are subscribed to.
+<p>
+<TABLE BORDER="0" CELLSPACING="3" CELLPADDING="4" WIDTH="100%">
+    <tr><TD BGCOLOR="#cccccc">
+        <a name="disable">
+        <strong>Mail delivery</strong></a><p>
+        Set this option to <em>Enabled</em> to receive messages posted
+        to this mailing list.  Set it to <em>Disabled</em> if you want
+        to stay subscribed, but don't want mail delivered to you for a
+        while (e.g. you're going on vacation).  If you disable mail
+        delivery, don't forget to re-enable it when you come back; it
+        will not be automatically re-enabled.
+        </td><td bgcolor="#cccccc">
+        <mm-delivery-enable-button>Enabled<br>
+        <mm-delivery-disable-button>Disabled<p>
+        <mm-global-deliver-button><i>Set globally</i>
+        </td></tr>
+
+    <tr><TD BGCOLOR="#cccccc">
+        <strong>Set Digest Mode</strong><p>
+        If you turn digest mode on, you'll get posts bundled together
+        (usually one per day but possibly more on busy lists), instead
+        of singly when they're sent.  If digest mode is changed from
+        on to off, you may receive one last digest.
+        </td><td bgcolor="#cccccc">
+        <MM-Undigest-Radio-Button>Off<br>
+        <MM-Digest-Radio-Button>On
+        </td></tr>
+        
+    <tr><TD BGCOLOR="#cccccc">
+        <strong>Get MIME or Plain Text Digests?</strong><p>
+        Your mail reader may or may not support MIME digests.  In
+        general MIME digests are preferred, but if you have a problem
+        reading them, select plain text digests.
+        </td><td bgcolor="#cccccc">
+        <MM-Mime-Digests-Button>MIME<br>
+        <MM-Plain-Digests-Button>Plain Text<p>
+        <mm-global-mime-button><i>Set globally</i>
+        </td></tr>
+        
+    <tr><TD BGCOLOR="#cccccc">
+        <strong>Receive your own posts to the list?</strong><p>
+        Ordinarily, you will get a copy of every message you post to
+        the list.  If you don't want to receive this copy, set this
+        option to <em>No</em>.
+        </td><td bgcolor="#cccccc">
+        <mm-dont-receive-own-mail-button>No<br>
+        <mm-receive-own-mail-button>Yes
+        </td></tr>
+
+    <tr><TD BGCOLOR="#cccccc">
+        <strong>Receive acknowledgement mail when you send mail to
+        the list?</strong><p>
+        </td><td bgcolor="#cccccc">
+        <mm-dont-ack-posts-button>No<br>
+        <mm-ack-posts-button>Yes
+        </td></tr>
+
+    <tr><td bgcolor="#cccccc">
+        <strong>Get password reminder email for this list?</strong><p>
+        Once a month, you will get an email containing a password
+        reminder for every list at this host to which you are
+        subscribed.  You can turn this off on a per-list basis by
+        selecting <em>No</em> for this option.  If you turn off
+        password reminders for all the lists you are subscribed to, no
+        reminder email will be sent to you.
+        </td><td bgcolor="#cccccc">
+        <mm-dont-get-password-reminder-button>No<br>
+        <mm-get-password-reminder-button>Yes<p>
+        <mm-global-remind-button><i>Set globally</i>
+        </td></tr>
+
+    <tr><TD BGCOLOR="#cccccc">
+        <strong>Conceal yourself from subscriber list?</strong><p>
+        When someone views the list membership, your email address is
+        normally shown (in an obscured fashion to thwart spam
+        harvesters).  If you do not want your email address to show up
+        on this membership roster at all, select <em>Yes</em> for this option.
+        </td><td bgcolor="#cccccc">
+        <MM-Public-Subscription-Button>No<br>
+        <MM-Hide-Subscription-Button>Yes
+        </td></tr>
+
+    <tr><TD BGCOLOR="#cccccc">
+        <strong>What language do you prefer?</strong><p>
+        </td><td bgcolor="#cccccc">
+        <MM-list-langs>
+        </td></tr>
+
+    <tr><td bgcolor="#cccccc">
+        <strong>Which topic categories would you like to subscribe
+                to?</strong><p>
+                By selecting one or more topics, you can filter the
+                traffic on the mailing list, so as to receive only a
+                subset of the messages.  If a message matches one of
+                your selected topics, then you will get the message,
+                otherwise you will not.
+
+                <p>If a message does not match any topic, the delivery
+                rule depends on the setting of the option below.  If
+                you do not select any topics of interest, you will get
+                all the messages sent to the mailing list.
+        </td><td bgcolor="#cccccc">
+        <mm-topics>
+        </td></tr>
+
+    <tr><td bgcolor="#cccccc">
+        <strong>Do you want to receive messages that do not match any
+                topic filter?</strong><p>
+
+                This option only takes effect if you've subscribed to
+                at least one topic above.  It describes what the
+                default delivery rule is for messages that don't match
+                any topic filter.  Selecting <em>No</em> says that if
+                the message does not match any topic filters, then you
+                won't get the message, while selecting <em>Yes</em>
+                says to deliver such non-matching messages to you.
+
+                <p>If no topics of interest are selected above, then
+                you will receive every message sent to the mailing
+                list.
+        </td><td bgcolor="#cccccc">
+        <mm-suppress-nonmatching-topics>No<br>
+        <mm-receive-nonmatching-topics>Yes
+        </td></tr>
+
+    <tr><td bgcolor="#cccccc">
+        <strong>Avoid duplicate copies of messages?</strong><p>
+
+                When you are listed explicitly in the <tt>To:</tt> or
+                <tt>Cc:</tt> headers of a list message, you can opt to
+                not receive another copy from the mailing list.
+                Select <em>Yes</em> to avoid receiving copies from the
+                mailing list; select <em>No</em> to receive copies.
+
+                <p>If the list has member personalized messages
+                enabled, and you elect to receive copies, every copy
+                will have a <tt>X-Mailman-Copy: yes</tt> header added
+                to it.
+
+        </td><td bgcolor="#cccccc">
+        <mm-receive-duplicates-button>No<br>
+        <mm-dont-receive-duplicates-button>Yes<p>
+        <mm-global-nodupes-button><i>Set globally</i>
+        </td></tr>
+
+    <tr><TD colspan="2">
+        <center><MM-options-Submit-button></center>
+        </td></tr>
+
+</table>
+</center>
+<p>
+<MM-Form-End>
+
+<MM-Mailman-Footer>

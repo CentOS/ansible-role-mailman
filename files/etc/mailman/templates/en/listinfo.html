@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- CentOS customization -->
+    <link href="http://centos-linux-7.local.lab/centos-style-websites/css/centos.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link href="http://centos-linux-7.local.lab/centos-style-websites/images/favicon.png" rel="icon" type="image/png" />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet">
+    <title><MM-List-Name> Info Page</title>
+  </head>
+
+  <body class="d-flex flex-column h-100">
+
+    <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="https://www.centos.org/">
+      <img src="http://centos-linux-7.local.lab/centos-style-websites/images/centos-logo-white.png" height="32" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.centos.org/download">Download</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            About
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="https://www.centos.org/about/">About CentOS</a>
+            <a class="dropdown-item" href="https://wiki.centos.org/FAQ">Frequently Asked Questions (FAQs)</a>
+            <a class="dropdown-item" href="https://wiki.centos.org/SpecialInterestGroup">Special Interest Groups (SIGs)</a>
+            <a class="dropdown-item" href="https://www.centos.org/variants/">CentOS Variants</a>
+            <a class="dropdown-item" href="https://www.centos.org/about/governance/">Governance</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Community
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="https://wiki.centos.org/Contribute">Contribute</a>
+            <a class="dropdown-item" href="https://www.centos.org/forums/">Forums</a>
+            <a class="dropdown-item" href="https://wiki.centos.org/GettingHelp/ListInfo">Mailing Lists</a>
+            <a class="dropdown-item" href="https://wiki.centos.org/irc">IRC</a>
+            <a class="dropdown-item" href="https://www.centos.org/community/calendar/">Calendar &amp; IRC Meeting List</a>
+            <a class="dropdown-item" href="http://planet.centos.org/">Planet</a>
+            <a class="dropdown-item" href="https://bugs.centos.org/">Submit a Bug</a>
+            <a class="dropdown-item" href="https://www.centos.org/community/stories/">Stories</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Documentation
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="https://wiki.centos.org/">Wiki</a>
+            <a class="dropdown-item" href="https://docs.centos.org/">Manuals</a>
+            <a class="dropdown-item" href="https://www.centos.org/keys">GPG Key Info</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://wiki.centos.org/Documentation?action=show&redirect=GettingHelp">Help</a>
+        </li>
+      </ul>
+    </div>
+    </nav>
+    </header>
+
+    <main>
+    <div class="container mt-3">
+
+<div class="jumbotron">
+  <h1 class="display-4"><MM-List-Name></h1>
+  <p class="lead"><MM-List-Description></p>
+  <hr class="my-4">
+  <p><MM-List-Info></p>
+	<p> To see the collection of prior postings to the list, visit the <MM-Archive><MM-List-Name> Archives</MM-Archive>. <MM-Restricted-List-Message></p>
+  <MM-lang-form-start><MM-displang-box> <MM-list-langs><MM-form-end>
+</div>
+
+<h2>Using <MM-List-Name></h2>
+<p>To post a message to all the list members, send email to <A HREF="mailto:<MM-Posting-Addr>"><MM-Posting-Addr></A>.</p>
+<p>You can subscribe to the list, or change your existing subscription, in the sections below.</p>
+
+<h2>Subscribing to <MM-List-Name></h2>
+
+<p>Subscribe to <MM-List-Name> by filling out the following form.
+<MM-List-Subscription-Msg>
+<ul>
+    <MM-Subscribe-Form-Start>
+	  <table class="table">
+		<TR>
+      <TD  class="table-secondary">Your email address:</TD>
+		  <TD><MM-Subscribe-Box>
+	</TD>
+	<TD WIDTH="12%">&nbsp;</TD></TR>
+      <tr>
+        <td class="table-secondary">Your name (optional):</td>
+        <td><mm-fullname-box></td>
+	<TD WIDTH="12%">&nbsp;</TD></TR>
+      <TR>
+	<TD COLSPAN="3">You may enter a
+	    privacy password below. This provides only mild security,
+	    but should prevent others from messing with your
+	    subscription.  <b>Do not use a valuable password</b> as
+	    it will occasionally be emailed back to you in cleartext.
+
+      <br><br>If you choose not to enter a password, one will be automatically
+      generated for you, and it will be sent to you once you've confirmed your
+      subscription.  You can always request a mail-back of your password when
+      you edit your personal options.
+
+	    <MM-Reminder>
+	</TD>
+      </TR>  
+      <TR>
+        <TD class="table-secondary"> Pick a password:</TD>
+	<TD><MM-New-Password-Box></TD>
+	<TD>&nbsp;</TD></TR>
+      <TR> 
+        <TD  class="table-secondary">Reenter password to confirm:</TD>
+	<TD><MM-Confirm-Password></TD>
+	<TD>&nbsp; </TD></TR>
+      <tr>
+        <TD class="table-secondary">Which language do you prefer to display your messages?</TD> 
+        <TD> <MM-list-langs></TD>
+        <TD>&nbsp; </TD></TR>
+      <mm-digest-question-start>
+      <tr>
+	<td>Would you like to receive list mail batched in a daily digest?</td>
+	<td><MM-Undigest-Radio-Button> No
+	    <MM-Digest-Radio-Button>  Yes
+	</TD>
+      </tr>
+      <mm-digest-question-end>
+      <tr>
+	<td colspan="3">
+	  <center><MM-Subscribe-Button></center>
+    </td>
+    </tr>
+    </TABLE>
+    <MM-Form-End>
+</ul>
+
+<a name="subscribers"><h2><MM-List-Name> Subscribers</h2></a>
+
+	<MM-Roster-Form-Start>
+	<MM-Roster-Option>
+	<MM-Form-End>
+	<MM-Options-Form-Start>
+	<MM-Editing-Options>
+	<MM-Form-End>        
+
+<MM-Mailman-Footer>

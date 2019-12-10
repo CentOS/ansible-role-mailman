@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- CentOS customization -->
+    <link href="/centos-design/css/centos.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link href="/centos-design/images/favicon.png" rel="icon" type="image/png" />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet">
+    <title>%(listname)s %(who)s Authentication</title>
+    <script>function sf(){document.f.adminpw.focus();}</script>
+
+  </head>
+
+  <body class="d-flex flex-column h-100">
+
+    <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="https://www.centos.org/">
+      <img src="/centos-design/images/centos-logo-white.png" height="32" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.centos.org/download">Download</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            About
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="https://www.centos.org/about/">About CentOS</a>
+            <a class="dropdown-item" href="https://wiki.centos.org/FAQ">Frequently Asked Questions (FAQs)</a>
+            <a class="dropdown-item" href="https://wiki.centos.org/SpecialInterestGroup">Special Interest Groups (SIGs)</a>
+            <a class="dropdown-item" href="https://www.centos.org/variants/">CentOS Variants</a>
+            <a class="dropdown-item" href="https://www.centos.org/about/governance/">Governance</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Community
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="https://wiki.centos.org/Contribute">Contribute</a>
+            <a class="dropdown-item" href="https://www.centos.org/forums/">Forums</a>
+            <a class="dropdown-item" href="https://wiki.centos.org/GettingHelp/ListInfo">Mailing Lists</a>
+            <a class="dropdown-item" href="https://wiki.centos.org/irc">IRC</a>
+            <a class="dropdown-item" href="https://www.centos.org/community/calendar/">Calendar &amp; IRC Meeting List</a>
+            <a class="dropdown-item" href="http://planet.centos.org/">Planet</a>
+            <a class="dropdown-item" href="https://bugs.centos.org/">Submit a Bug</a>
+            <a class="dropdown-item" href="https://www.centos.org/community/stories/">Stories</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Documentation
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="https://wiki.centos.org/">Wiki</a>
+            <a class="dropdown-item" href="https://docs.centos.org/">Manuals</a>
+            <a class="dropdown-item" href="https://www.centos.org/keys">GPG Key Info</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href=https://wiki.centos.org/Documentation?action=show&redirect=GettingHelp">Help</a>
+        </li>
+      </ul>
+    </div>
+    </nav>
+    </header>
+
+    <main>
+    <div class="container mt-3">
+
+      <h1>%(listname)s %(who)s Authentication</h1>
+
+      %(message)s
+
+    <form method="post" action="%(path)s" name="f">
+    <div class="form-group mb-4 mt-4">
+    <div class="row">
+    <div class="col">
+      <input type="password" name="adminpw" class="form-control" id="adminpw" placeholder="Password" aria-describedby="adminpw">
+      <small id="adminpw" class="form-text text-muted">List %(who)s Password</small>
+    </div>
+    <div class="col">
+      <input type="submit" name="admlogin" value="Let me in..." class="btn btn-dark">
+    </div>
+  </div>
+    </div>
+  </form>
+
+  <div class="alert alert-info" role="alert">
+  <h4 class="alert-heading">Important!</h4>
+  <p>From this point on, you
+      must have cookies enabled in your browser, otherwise no
+      administrative changes will take effect.</p>
+  <hr>
+  <p class="mb-0">Session cookies are used in Mailman's
+      administrative interface so that you don't need to
+      re-authenticate with every administrative operation.  This
+      cookie will expire automatically when you exit your browser, or
+      you can explicitly expire the cookie by hitting the
+      <em>Logout</em> link under <em>Other Administrative
+      Activities</em> (which you'll see once you successfully log in).</p>
+</div>
+

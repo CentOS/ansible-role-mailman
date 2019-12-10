@@ -1,0 +1,21 @@
+# This file is managed by Ansible
+# If you need to have a look at all possible items, see the one coming from mailman
+real_name = '{{ item.name }}'
+description = '{{ item.description|default('mailing list') }}'
+from_is_list = 0
+reply_goes_to_list = 1
+send_reminders = 0
+max_message_size = {{ item.max_message_size|default('50') }}
+archive = True
+{% if item.private is defined and item.private %}
+archive_private = 1
+advertised = 0
+{% else %}
+archive_private = 0
+advertised = 1
+{% endif %}
+private_roster = 2
+obscure_addresses = 1
+dmarc_moderation_action = 1
+generic_nonmember_action = 3
+forward_auto_discards = 0

@@ -1,1 +1,17 @@
 # Defaults variables for role mailman
+
+# mailman settings
+mailman_admin: admin@centos.org
+mailman_url_host: lists.centos.org
+mailman_email_host: centos.org
+mailman_admin_pass: GoodLuckButNotTheRightOneHere
+
+# Do we want to include recaptcha v2 ?
+mailman_recaptcha: False
+# from google/recaptcha for this site
+mailman_recaptcha_priv_key:
+mailman_recaptcha_pub_key:
+
+# httpd settings
+mailman_httpd_tls: False
+mailman_httpd_hostname: "{{ mailman_url_host }}"

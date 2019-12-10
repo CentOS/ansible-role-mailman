@@ -1,0 +1,22 @@
+--- /usr/lib/mailman/Mailman/Cgi/listinfo.py.orig	2019-12-06 15:47:56.770418097 +0000
++++ /usr/lib/mailman/Mailman/Cgi/listinfo.py	2019-12-06 16:42:30.846135036 +0000
+@@ -30,6 +30,7 @@
+ from Mailman import i18n
+ from Mailman.htmlformat import *
+ from Mailman.Logging.Syslog import syslog
++from recaptcha import captcha
+ 
+ # Set up i18n
+ _ = i18n._
+@@ -203,6 +204,10 @@
+     replacements['<mm-lang-form-start>'] = mlist.FormatFormStart('listinfo')
+     replacements['<mm-fullname-box>'] = mlist.FormatBox('fullname', size=30)
+ 
++    # Recaptcha patch
++    replacements['<mm-recaptcha-javascript>'] = captcha.displayhtml(mm_cfg.RECAPTCHA_PUBLIC_KEY, use_ssl=True, version=2)
++    replacements['<mm-recaptcha-script>'] = captcha.load_script(version=2)
++
+     # Do the expansion.
+     doc.AddItem(mlist.ParseTags('listinfo.html', replacements, lang))
+     print doc.Format()
+

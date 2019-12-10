@@ -1,0 +1,27 @@
+--- /usr/lib/mailman/Mailman/Cgi/subscribe.py.orig	2019-12-06 15:47:50.641429686 +0000
++++ /usr/lib/mailman/Mailman/Cgi/subscribe.py	2019-12-06 15:54:52.786631219 +0000
+@@ -31,6 +31,7 @@
+ from Mailman.UserDesc import UserDesc
+ from Mailman.htmlformat import *
+ from Mailman.Logging.Syslog import syslog
++from recaptcha import captcha
+ 
+ SLASH = '/'
+ ERRORSEP = '\n\n<p>'
+@@ -120,6 +121,15 @@
+     remote = os.environ.get('REMOTE_HOST',
+                             os.environ.get('REMOTE_ADDR',
+                                            'unidentified origin'))
++    # reCaptcha
++    captcha_response = captcha.v2submit(
++        cgidata.getvalue('g-recaptcha-response', ""),
++        mm_cfg.RECAPTCHA_PRIVATE_KEY,
++        remote,
++        )
++    if not captcha_response.is_valid:
++        results.append(_('Invalid captcha'))
++   
+     # Was an attempt made to subscribe the list to itself?
+     if email == mlist.GetListEmail():
+         syslog('mischief', 'Attempt to self subscribe %s: %s', email, remote)
+

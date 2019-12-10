@@ -1,0 +1,17 @@
+<VirtualHost *:80>
+   ServerName {{ mailman_httpd_hostname }}
+   DocumentRoot /var/www/html/
+   CustomLog logs/{{ mailman_httpd_hostname }}_access.log combined
+   ErrorLog logs/{{ mailman_httpd_hostname }}_error.log
+   AccessFileName .htaccess
+
+{% if mailman_httpd_tls %}
+   RewriteEngine On
+   RewriteCond %{HTTPS} !=on
+   RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+{% else %}
+   RedirectMatch ^/[/]*$ /mailman/listinfo
+   RedirectMatch ^/mailman[/]*$ /mailman/listinfo
+{% endif %}
+</VirtualHost>
+

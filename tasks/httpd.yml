@@ -1,0 +1,33 @@
+- name: Configuring httpd
+  import_role:
+    name: httpd
+  vars:
+    httpd_tls: "{{ mailman_httpd_tls }}"
+
+- name: Configuring httpd vhost
+  template:
+    src: 02_mailman_vhost.conf.j2
+    dest: /etc/httpd/conf.d/02_mailman_vhost.conf
+  notify:
+    - restart_httpd
+
+- name: Configuring https
+  template:
+    src: "{{ item }}.j2"
+    dest: "/etc/httpd/conf.d/{{ item }}"
+  notify:
+    - restart_httpd
+  with_items:
+    - ssl-mailman-vhost.conf
+  when: mailman_httpd_tls  
+   
+- import_role:
+    name: httpd
+    tasks_from: pki-tls
+  vars:
+    pki_hostname: "{{ mailman_httpd_hostname }}"
+  notify:
+    - restart_httpd
+  tags:
+    - tls
+  when: mailman_httpd_tls

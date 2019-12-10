@@ -1,0 +1,13 @@
+module centos-mailman-recaptcha 1.0;
+
+require {
+	type mailman_cgi_t;
+	type http_port_t;
+	class tcp_socket name_connect;
+}
+
+#============= mailman_cgi_t ==============
+
+allow mailman_cgi_t http_port_t:tcp_socket name_connect;
+
+

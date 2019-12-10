@@ -1,1 +1,86 @@
 # Defaults tasks for role mailman
+
+- name: pkgs should be installed for mailman
+  yum:
+    name: mailman
+    state: latest
+
+- name: MailMan config
+  template:
+    src: mm_cfg.py.j2 
+    dest: /etc/mailman/mm_cfg.py
+  notify:
+    - restart_mailman
+
+- name: Ensuring with have a mailman admin pass
+  shell: "/usr/lib/mailman/bin/mmsitepass {{ mailman_admin_pass }}"
+  args:
+    creates: /etc/mailman/adm.pw
+  no_log: True  
+
+- name: Ensuring we can drop mailman list configs
+  file:
+    path: /etc/mailman/list_configs
+    state: directory
+    mode: 0750
+  tags:
+    - lists
+
+- name: Gather current mailman lists as facts
+  mailman_lists:
+  tags:
+    - lists
+
+- name: Creating default mailman list if needed
+  command: "/usr/lib/mailman/bin/newlist -q Mailman {{ mailman_admin }} {{ mailman_admin_pass }}"
+  when: "'mailman' not in mailman.lists"
+  register: mailman_sitelist
+
+- name: Configuring default mailman sitelist
+  command: "/usr/lib/mailman/bin/config_list -i /etc/mailman/sitelist.cfg mailman"
+  when: mailman_sitelist is changed
+
+- name: Creating lists if needed
+  command: "/usr/lib/mailman/bin/newlist -q {{ item.name }} {{ item.admin }} {{ item.password }}"
+  when: "item.name|lower not in mailman.lists"
+  with_items: "{{ mailman_lists }}"
+  loop_control:
+    label: '{{ item.name }}'
+  tags:
+    - lists
+
+- name: Creating list settings
+  template:
+    src: list-settings.cfg.j2
+    dest: "/etc/mailman/list_configs/{{ item.name }}-settings.cfg"
+  with_items: "{{ mailman_lists }}"
+  loop_control:
+    label: '{{ item.name }}'
+  register: list_settings  
+  tags:
+    - lists
+
+- name: Configuring list when changed
+  command: "/usr/lib/mailman/bin/config_list -i /etc/mailman/list_configs/{{ item.item.name }}-settings.cfg {{ item.item.name | lower }}"
+  with_items: "{{ list_settings.results }}"
+  when: item.changed
+  loop_control:
+    label: '{{ item.item.name }}'
+  tags:
+    - lists
+
+- name: Configuring recaptcha if needed
+  include_tasks: recaptcha.yml
+  when: mailman_recaptcha
+
+- name: Configuring selinux
+  include_tasks: selinux.yml
+
+- name: Configuring httpd
+  include_tasks: httpd.yml
+
+- name: mailman should be started and enabled
+  service:
+    name: mailman
+    state: stopped
+    enabled: True

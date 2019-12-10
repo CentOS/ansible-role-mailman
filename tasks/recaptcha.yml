@@ -1,0 +1,24 @@
+- name: Ensuring some pkgs for recaptcha are installed
+  yum:
+    name: ['python-simplejson', 'python-recaptcha-client', 'patch']
+    state: latest
+
+- name: Linking recaptcha
+  file:
+    state: link
+    src: /usr/lib/python2.7/site-packages/recaptcha/client/
+    dest: /usr/lib/mailman/pythonlib/recaptcha
+
+- name: Linking simplejson
+  file:
+    state: link
+    src: /usr/lib64/python2.7/site-packages/simplejson/
+    dest: /usr/lib/mailman/pythonlib/simplejson
+
+- name: Patching mailman for recaptcha support
+  patch:
+    src: "recaptcha/{{ item }}"
+    basedir: /
+  with_items:
+    - mm-cgi-listinfo-recaptcha.patch
+    - mm-cgi-subscribe-recaptcha.patch

@@ -1,0 +1,19 @@
+
+- name: Distributing custom selinux policy
+  copy:
+    src: "recaptcha/selinux/{{ item }}"
+    dest: "/etc/selinux/centos/{{ item }}"
+  with_items:
+    - centos-mailman-recaptcha.pp
+  register: sepolicy  
+  tags:
+    - selinux
+  when: ansible_selinux.status == "enabled"
+
+- name: Reloading selinux policy on change
+  shell: "/usr/sbin/semodule -u /etc/selinux/centos/{{ item.item }}"
+  with_items: "{{ sepolicy.results }}"
+  when: item.changed
+  no_log: True
+  tags:
+    - selinux

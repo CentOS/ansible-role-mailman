@@ -1,1 +1,6 @@
 # Defaults handlers for role mailman
+
+- name: restart_mailman
+  service:
+    name: mailman
+    state: restarted

@@ -1,0 +1,54 @@
+<VirtualHost *:443>
+DocumentRoot "/var/www/html/"
+ErrorLog logs/ssl-{{ mailman_httpd_hostname }}_error.log
+TransferLog logs/ssl-{{ mailman_httpd_hostname }}_access.log
+LogLevel warn
+
+
+ Header always set Strict-Transport-Security "max-age=31536000"  
+ Header always set X-Frame-Options "SAMEORIGIN"
+ Header always set X-Xss-Protection "1; mode=block"
+ Header always set X-Content-Type-Options "nosniff"
+ Header always set Referrer-Policy "same-origin"
+
+SSLEngine on
+SSLHonorCipherOrder on
+SSLProtocol all -SSLv2 -SSLv3
+SSLCipherSuite ALL:!ADH:!EXPORT:!SSLv2:RC4+RSA:+HIGH:+MEDIUM:+LOW:!aNULL:!eNULL:!DES:!MD5:!PSK:!RC4
+SSLCertificateFile /etc/pki/tls/certs/{{ mailman_httpd_hostname }}.crt
+SSLCertificateKeyFile /etc/pki/tls/private/{{ mailman_httpd_hostname }}.key
+SSLCertificateChainFile /etc/pki/tls/certs/{{ mailman_httpd_hostname }}-CAChain.crt
+<Files ~ "\.(cgi|shtml|phtml|php3?)$">
+    SSLOptions +StdEnvVars
+</Files>
+<Directory "/var/www/cgi-bin">
+    SSLOptions +StdEnvVars
+</Directory>
+SetEnvIf User-Agent ".*MSIE.*" \
+         nokeepalive ssl-unclean-shutdown \
+         downgrade-1.0 force-response-1.0
+CustomLog logs/ssl-{{ mailman_httpd_hostname }}_request.log \
+          "%t %h %{SSL_PROTOCOL}x %{SSL_CIPHER}x \"%r\" %b"
+
+ScriptAlias /mailman/ /usr/lib/mailman/cgi-bin/
+<Directory /usr/lib/mailman/cgi-bin/>
+    AllowOverride None
+    Options ExecCGI
+    Order allow,deny
+    Allow from all
+</Directory>
+
+
+Alias /pipermail/ /var/lib/mailman/archives/public/
+<Directory /var/lib/mailman/archives/public>
+    Options MultiViews FollowSymLinks
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+    AddDefaultCharset Off
+</Directory>
+
+RedirectMatch ^/[/]*$ /mailman/listinfo
+RedirectMatch ^/mailman[/]*$ /mailman/listinfo
+
+</VirtualHost> 

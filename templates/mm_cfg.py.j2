@@ -106,3 +106,15 @@ SENDER_HEADERS = ('from', None, 'reply-to', 'sender')
 RECAPTCHA_PRIVATE_KEY = '{{ mailman_recaptcha_priv_key }}'
 RECAPTCHA_PUBLIC_KEY = '{{ mailman_recaptcha_pub_key }}'
 {% endif %}
+
+# Theme settings
+WEB_TPL_HEAD = """
+{{ mailman_html_tpl_head }}
+"""
+WEB_TPL_BODYSTART = """
+{{ mailman_html_tpl_bodystart }}
+"""
+WEB_TPL_BODYCLOSE = """
+{{ mailman_html_tpl_bodyclose }}
+"""
+

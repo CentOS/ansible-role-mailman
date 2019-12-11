@@ -11,6 +11,8 @@
     dest: /etc/mailman/mm_cfg.py
   notify:
     - restart_mailman
+  tags:
+    - config
 
 - name: Ensuring with have a mailman admin pass
   shell: "/usr/lib/mailman/bin/mmsitepass {{ mailman_admin_pass }}"
@@ -68,6 +70,13 @@
     label: '{{ item.item.name }}'
   tags:
     - lists
+
+- name: Importing mailman templates
+  synchronize:
+    src: "etc/mailman/templates/en/"
+    dest: "/etc/mailman/templates/en/"
+  tags:
+    - theme
 
 - name: Configuring recaptcha if needed
   include_tasks: recaptcha.yml

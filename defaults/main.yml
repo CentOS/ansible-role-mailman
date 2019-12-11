@@ -116,6 +116,22 @@ mailman_html_tpl_bodystart: |
 mailman_html_tpl_bodyclose: |
   </div>
   </main>
+  <footer class="footer pt-4 bg-light sticky-bottom">
+  <div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Sponsor</h2>
+            <p>This site would not be possible without the support of <a href="http://steadfast.net/">steadfast</a>. We would like to thank <a href="http://steadfast.net/">steadfast</a> for being a CentOS sponsor.</p>
+            <p>If you value our work, please consider <a href="https://www.centos.org/sponsors/">becoming a sponsor!</a></p>
+        </div>
+        <div class="col col-lg-4 mt-4">
+            <a href="http://steadfast.net/" rel="nofollow"><img class="d-block w-100 img-rounded" src="https://www.centos.org/images/sponsors/steadfast.png"></a>
+        </div>
+    </div>
+  </div>
+  <div class="container mt-4">
+    <p class="text-muted credit text-center">&copy; 2019 The CentOS Project | <a href="https://www.centos.org/legal/">Legal</a> | <a href="https://www.centos.org/legal/privacy/">Privacy</a></p>
+  </div>
   </footer>
   </body>
   </html>

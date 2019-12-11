@@ -95,38 +95,37 @@
 
    <h1>%(subject_html)s</h1>
    <h2>%(author_html)s</h2> 
-   <A HREF="mailto:%(email_url)s?Subject=Re:%%20%(subject_url)s&In-Reply-To=%(in_reply_to_url)s" TITLE="%(subject_html)s">%(email_html)s</A>
-   <BR>
-    <I>%(datestr_html)s</I>
-    <P><UL>
+   <a href="mailto:%(email_url)s?Subject=Re:%%20%(subject_url)s&In-Reply-To=%(in_reply_to_url)s" title="%(subject_html)s">%(email_html)s</a><br />
+   <em>%(datestr_html)s</em>
+   <p><ul>
         %(prev_wsubj)s
         %(next_wsubj)s
-         <LI> <B>Messages sorted by:</B> 
+        <li><strong>Messages sorted by:</strong>
               <a href="date.html#%(sequence)s">[ date ]</a>
               <a href="thread.html#%(sequence)s">[ thread ]</a>
               <a href="subject.html#%(sequence)s">[ subject ]</a>
               <a href="author.html#%(sequence)s">[ author ]</a>
-         </LI>
-       </UL>
-    <HR>  
+        </li>
+      </ul>
+  </p>
+  <hr/>
 <!--beginarticle-->
 %(body)s
 <!--endarticle-->
-    <HR>
-    <P><UL>
-        <!--threads-->
+  <hr/>
+  <p><ul>
+<!--threads-->
 	%(prev_wsubj)s
 	%(next_wsubj)s
-         <LI> <B>Messages sorted by:</B> 
-              <a href="date.html#%(sequence)s">[ date ]</a>
-              <a href="thread.html#%(sequence)s">[ thread ]</a>
-              <a href="subject.html#%(sequence)s">[ subject ]</a>
-              <a href="author.html#%(sequence)s">[ author ]</a>
-         </LI>
-       </UL>
-
-	<hr>
-	<a href="%(listurl)s">More information about the %(listname)s mailing list</a><br>
+    <li><strong>Messages sorted by:</strong>
+      <a href="date.html#%(sequence)s">[ date ]</a>
+      <a href="thread.html#%(sequence)s">[ thread ]</a>
+      <a href="subject.html#%(sequence)s">[ subject ]</a>
+      <a href="author.html#%(sequence)s">[ author ]</a>
+    </li>
+  </ul>
+	<hr/>
+	<a href="%(listurl)s">More information about the %(listname)s mailing list</a><br/>
 
     </div>
     </main>

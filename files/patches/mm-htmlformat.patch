@@ -1,0 +1,29 @@
+--- /usr/lib/mailman/Mailman/htmlformat.py.orig	2019-12-11 11:41:21.001447187 +0000
++++ /usr/lib/mailman/Mailman/htmlformat.py	2019-12-11 14:29:23.405466639 +0000
+@@ -318,6 +318,7 @@
+                           'content="text/html; charset=%s">' % charset)
+             if self.title:
+                 output.append('%s<TITLE>%s</TITLE>' % (tab, self.title))
++            output.append('%s' % (mm_cfg.WEB_TPL_HEAD))
+             output.append('%s</HEAD>' % tab)
+             quals = []
+             # Default link colors
+@@ -333,11 +334,15 @@
+             # Language direction
+             direction = Utils.GetDirection(self.language)
+             output.append('dir="%s">' % direction)
++            output.append('%s' % (mm_cfg.WEB_TPL_BODYSTART))
+         # Always do this...
+         output.append(Container.Format(self, indent))
+         if not self.suppress_head:
+-            output.append('%s</BODY>' % tab)
+-            output.append('%s</HTML>' % tab)
++            if mm_cfg.WEB_TPL_BODYCLOSE:
++                output.append(mm_cfg.WEB_TPL_BODYCLOSE)
++            else:
++                output.append('%s</BODY>' % tab)
++                output.append('%s</HTML>' % tab)
+         return NL.join(output)
+ 
+     def addError(self, errmsg, tag=None):
+

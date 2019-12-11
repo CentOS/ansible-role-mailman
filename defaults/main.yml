@@ -21,7 +21,7 @@ mailman_admin_pass: GoodLuckButNotTheRightOneHere
 mailman_lists: []
 
 # Do we want to include recaptcha v2 ?
-mailman_recaptcha: False
+mailman_recaptcha: True
 # from google/recaptcha for this site
 mailman_recaptcha_priv_key:
 mailman_recaptcha_pub_key:
@@ -42,7 +42,7 @@ mailman_html_tpl_head: |
   <!-- CentOS customization -->
   <link href="/centos-design/css/centos.css" rel="stylesheet">
   <!-- Favicon -->
-  <link href="/centos-design/images/favicon.png" rel="icon" type="image/png" />
+  <link href="/centos-design/images/favicon.ico" rel="icon" type="image/png" />
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet">
   

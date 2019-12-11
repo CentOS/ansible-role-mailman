@@ -78,6 +78,14 @@
   tags:
     - theme
 
+- name: Patching mailman for our templates
+  patch:
+    src: "patches/{{ item }}"
+    basedir: /
+  with_items:
+    - mm-htmlformat.patch
+
+
 - name: Configuring recaptcha if needed
   include_tasks: recaptcha.yml
   when: mailman_recaptcha
@@ -91,5 +99,5 @@
 - name: mailman should be started and enabled
   service:
     name: mailman
-    state: stopped
+    state: started
     enabled: True

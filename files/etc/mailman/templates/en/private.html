@@ -84,24 +84,21 @@
 <form method="post" action="%(action)s" name="f">
 %(message)s
   <table class="table">
-    <TR>
-      <TD COLSPAN="2" WIDTH="100%%" BGCOLOR="#99CCFF" ALIGN="CENTER">
-	<B><FONT COLOR="#000000" SIZE="+1">%(realname)s Private
-	    Archives Authentication</FONT></B>
-      </TD>
-    </TR>
     <tr>
-        <TD><div ALIGN="Right">Email address:</div></TD>
-        <TD><INPUT TYPE="text" NAME="username" SIZE="30"></TD>
+      <td colspan="2" width="100%%" bgcolor="#99ccff" align="center">
+	    <strong><font color="#000000" size="+1">%(realname)s Private Archives Authentication</font></strong>
+      </td>
     </tr>
     <tr>
-      <TD><div ALIGN="Right">Password:</div></TD>
-      <TD><INPUT TYPE="password" NAME="password" SIZE="30"></TD>
+      <td><div align="right">Email address:</div></td>
+      <td><input type="text" name="username" size="30"></td>
     </tr>
     <tr>
-      <td colspan=2 align="middle"><INPUT type="SUBMIT"
-                                          name="submit"
-					  value="Let me in...">
+      <td><div align="right">Password:</div></td>
+      <td><input type="password" name="password" size="30"></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="middle"><input type="submit" name="submit" value="Let me in...">
       </td>
     </tr>
   </table>
@@ -116,19 +113,19 @@
     expire the cookie by visiting your member options page and clicking the
     <em>Log out</em> button.  <p>
 
-  <TABLE class="table">
-    <TR>
-      <TD COLSPAN="2" WIDTH="100%%" BGCOLOR="#99CCFF" ALIGN="CENTER">
-	<B><FONT COLOR="#000000" SIZE="+1">Password Reminder</FONT></B>
-      </TD>
-    </TR>
+  <table class="table">
+    <tr>
+      <td colspan="2" width="100%%" bgcolor="#99CCFF" align="CENTER">
+	<strong><font color="#000000" size="+1">Password Reminder</font></strong>
+      </td>
+    </tr>
     <tr>
       <td>If you don't remember your password, enter your email address
           above and click the <em>Remind</em> button and your
           password will be emailed to you.</td>
     </tr>
     <tr>
-      <td><center><INPUT name="login-remind" type="SUBMIT" value="Remind" ></center></td>
+      <td><center><input name="login-remind" type="submit" value="Remind" ></center></td>
     </tr>
   </table>
 </form>

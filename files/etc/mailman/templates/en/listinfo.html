@@ -85,82 +85,117 @@
   <p class="lead"><MM-List-Description></p>
   <hr class="my-4">
   <p><MM-List-Info></p>
-	<p> To see the collection of prior postings to the list, visit the <MM-Archive><MM-List-Name> Archives</MM-Archive>. <MM-Restricted-List-Message></p>
+	<p>To see the collection of prior postings to the list, visit the <MM-Archive><MM-List-Name> Archives</MM-Archive>. <MM-Restricted-List-Message></p>
   <MM-lang-form-start><MM-displang-box> <MM-list-langs><MM-form-end>
 </div>
 
-<h2>Using <MM-List-Name></h2>
-<p>To post a message to all the list members, send email to <A HREF="mailto:<MM-Posting-Addr>"><MM-Posting-Addr></A>.</p>
+<section class="mb-3">
+<h2 class="border-bottom">Using <MM-List-Name></h2>
+<p>To post a message to all the list members, send email to <a href="mailto:<MM-Posting-Addr>"><MM-Posting-Addr></A>.</p>
 <p>You can subscribe to the list, or change your existing subscription, in the sections below.</p>
+</section>
 
-<h2>Subscribing to <MM-List-Name></h2>
-
+<section class="mb-3">
+<h2 class="border-bottom">Subscribing to <MM-List-Name></h2>
 <p>Subscribe to <MM-List-Name> by filling out the following form.
 <MM-List-Subscription-Msg>
-<ul>
-    <MM-Subscribe-Form-Start>
-	  <table class="table">
-		<TR>
-      <TD  class="table-secondary">Your email address:</TD>
-		  <TD><MM-Subscribe-Box>
-	</TD>
-	<TD WIDTH="12%">&nbsp;</TD></TR>
-      <tr>
-        <td class="table-secondary">Your name (optional):</td>
-        <td><mm-fullname-box></td>
-	<TD WIDTH="12%">&nbsp;</TD></TR>
-      <TR>
-	<TD COLSPAN="3">You may enter a
-	    privacy password below. This provides only mild security,
-	    but should prevent others from messing with your
-	    subscription.  <b>Do not use a valuable password</b> as
-	    it will occasionally be emailed back to you in cleartext.
 
-      <br><br>If you choose not to enter a password, one will be automatically
-      generated for you, and it will be sent to you once you've confirmed your
-      subscription.  You can always request a mail-back of your password when
-      you edit your personal options.
+  <MM-Subscribe-Form-Start>
 
-	    <MM-Reminder>
-	</TD>
-      </TR>  
-      <TR>
-        <TD class="table-secondary"> Pick a password:</TD>
-	<TD><MM-New-Password-Box></TD>
-	<TD>&nbsp;</TD></TR>
-      <TR> 
-        <TD  class="table-secondary">Reenter password to confirm:</TD>
-	<TD><MM-Confirm-Password></TD>
-	<TD>&nbsp; </TD></TR>
-      <tr>
-        <TD class="table-secondary">Which language do you prefer to display your messages?</TD> 
-        <TD> <MM-list-langs></TD>
-        <TD>&nbsp; </TD></TR>
-      <mm-digest-question-start>
-      <tr>
-	<td>Would you like to receive list mail batched in a daily digest?</td>
-	<td><MM-Undigest-Radio-Button> No
-	    <MM-Digest-Radio-Button>  Yes
-	</TD>
-      </tr>
-      <mm-digest-question-end>
-      <tr>
-	<td colspan="3">
-	  <center><MM-Subscribe-Button></center>
-    </td>
-    </tr>
-    </TABLE>
-    <MM-Form-End>
-</ul>
+  <section class="pt-3 pb-3 pr-5 pl-5 bg-light">
+  <div class="row border-bottom p-2">
+    <div class="col">
+      <div class="row">Your email address:</div>
+    </div>
+    <div class="col">
+      <div class="row"><MM-Subscribe-Box></div>
+    </div>
+  </div>
+  <div class="row border-bottom p-2">
+    <div class="col">
+      <div class="row">Your name (optional):</div>
+    </div>
+    <div class="col">
+      <div class="row"><mm-fullname-box></div>
+    </div>
+  </div>
 
-<a name="subscribers"><h2><MM-List-Name> Subscribers</h2></a>
+  <div class="row p-2">You may enter a privacy password below.
+    This provides only mild security, but should prevent others from messing
+    with your subscription.  <strong>Do not use a valuable password</strong> as
+    it will occasionally be emailed back to you in cleartext.
+    </div>
 
+  <div class="row p-2">You may enter a privacy password below.
+    If you choose not to enter a password, one will be automatically generated
+    for you, and it will be sent to you once you've confirmed your
+    subscription.  You can always request a mail-back of your password when you
+    edit your personal options.
+  </div>
+
+  <div class="row border-bottom p-2"><MM-Reminder></div>
+
+  <div class="row border-bottom p-2">
+    <div class="col">
+      <div class="row">Pick a password:</div>
+    </div>
+    <div class="col">
+      <div class="row"><MM-New-Password-Box></div>
+    </div>
+  </div>
+  <div class="row border-bottom p-2">
+    <div class="col">
+      <div class="row">Reenter password to confirm:</div>
+    </div>
+    <div class="col">
+      <div class="row"><MM-Confirm-Password></div>
+    </div>
+  </div>
+  <div class="row border-bottom p-2">
+    <div class="col">
+      <div class="row">Which language do you prefer to display your messages?</div>
+    </div>
+    <div class="col">
+      <div class="row"><MM-list-langs></div>
+    </div>
+  </div>
+  <mm-digest-question-start>
+  <div class="row border-bottom p-2">
+    <div class="col pt-2">
+      <div class="row">Would you like to receive list mail batched in a daily digest?</div>
+    </div>
+    <div class="col">
+      <div class="row"><span class="pt-2 ptb-2 pr-2"><MM-Undigest-Radio-Button> No</span><span class="pt-2 pb-2 pr-2"><MM-Digest-Radio-Button> Yes</span></div>
+    </div>
+  </div>
+  <mm-digest-question-end>
+  <div class="row border-bottom p-2">
+    <div class="col">
+      <div class="row">Please fill out the following captcha:</div>
+    </div>
+    <div class="col">
+      <div class="row"><mm-recaptcha-javascript></div>
+    </div>
+  </div>
+  <div class="mt-4 text-center"><MM-Subscribe-Button></div>
+  </section>
+  <MM-Form-End>
+</section>
+
+<section>
+  <a name="subscribers"><h2 class="border-bottom"><MM-List-Name> Subscribers</h2></a>
+  <section class="pt-3 pb-3 pr-5 pl-5 bg-light mb-1">
 	<MM-Roster-Form-Start>
 	<MM-Roster-Option>
 	<MM-Form-End>
+  </section>
+
+  <section class="pt-3 pb-3 pr-5 pl-5 bg-light mb-1">
 	<MM-Options-Form-Start>
 	<MM-Editing-Options>
 	<MM-Form-End>        
+  </section>
+</section>
 
 <MM-Mailman-Footer>
 

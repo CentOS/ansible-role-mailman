@@ -101,3 +101,14 @@
     name: mailman
     state: started
     enabled: True
+
+- name: Ensuring backup user and jobs
+  include_role:
+    name: centos-backup
+    tasks_from: client
+  vars:
+    - centos_role: mailman
+    - role_backup_folders:
+        - /var/lib/mailman
+  tags:
+    - backup

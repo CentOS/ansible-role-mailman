@@ -10,11 +10,11 @@ archive = True
 {% if item.private is defined and item.private %}
 archive_private = 1
 advertised = 0
-subscribe_policy = 1
+subscribe_policy = 3
 {% else %}
 archive_private = 0
 advertised = 1
-subscribe_policy = 3
+subscribe_policy = 1
 {% endif %}
 private_roster = 2
 obscure_addresses = 1

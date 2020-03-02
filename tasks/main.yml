@@ -95,7 +95,8 @@
 
 - name: Configuring httpd
   include_tasks: httpd.yml
-
+  tags:
+    - tls
 - name: mailman should be started and enabled
   service:
     name: mailman

@@ -8,6 +8,7 @@
   template:
     src: 02_mailman_vhost.conf.j2
     dest: /etc/httpd/conf.d/02_mailman_vhost.conf
+    mode: 0644
   notify:
     - restart_httpd
 
@@ -15,6 +16,7 @@
   template:
     src: "{{ item }}.j2"
     dest: "/etc/httpd/conf.d/{{ item }}"
+    mode: 0644
   notify:
     - restart_httpd
   with_items:

@@ -9,6 +9,7 @@
   template:
     src: mm_cfg.py.j2 
     dest: /etc/mailman/mm_cfg.py
+    mode: 0644
   notify:
     - restart_mailman
   tags:
@@ -55,6 +56,7 @@
   template:
     src: list-settings.cfg.j2
     dest: "/etc/mailman/list_configs/{{ item.name }}-settings.cfg"
+    mode: 0644
   with_items: "{{ mailman_lists }}"
   loop_control:
     label: '{{ item.name }}'

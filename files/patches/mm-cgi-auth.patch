@@ -1,0 +1,8 @@
+--- /usr/lib/mailman/Mailman/Cgi/Auth.py.orig	2021-05-30 23:09:25.112739358 +0000
++++ /usr/lib/mailman/Mailman/Cgi/Auth.py	2021-05-30 23:09:37.249778257 +0000
+@@ -59,3 +59,5 @@
+          'who'     : who,
+          }, mlist=mlist)
+     print mlist.GetMailmanFooter()
++    if mm_cfg.WEB_TPL_BODYCLOSE:
++        print mm_cfg.WEB_TPL_BODYCLOSE

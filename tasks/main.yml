@@ -74,19 +74,23 @@
     - lists
 
 - name: Importing mailman templates
-  synchronize:
-    src: "etc/mailman/templates/en/"
+  template:
+    src: "{{ item }}"
     dest: "/etc/mailman/templates/en/"
+  loop: "{{ lookup('fileglob', 'templates/etc/mailman/templates/en/*', wantlist=True) }}"
   tags:
     - theme
+  notify: restart_mailman
 
 - name: Patching mailman for our templates
   patch:
     src: "patches/{{ item }}"
     basedir: /
   with_items:
+    - mm-cgi-auth.patch
     - mm-htmlformat.patch
-
+  tags:
+    - patch
 
 - name: Configuring recaptcha if needed
   include_tasks: recaptcha.yml
@@ -99,6 +103,7 @@
   include_tasks: httpd.yml
   tags:
     - tls
+
 - name: mailman should be started and enabled
   service:
     name: mailman

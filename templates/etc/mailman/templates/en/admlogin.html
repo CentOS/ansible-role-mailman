@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+    <title>%(listname)s %(who)s Authentication</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ mailman_html_assets_url }}/assets/img/favicon.png">
+    <link rel="stylesheet" href="{{ mailman_html_assets_url }}/assets/css/centos.bootstrap.min.css">
+  </head>
+  <body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="{{ mailman_html_assets_url }}/"><img src="{{ mailman_html_assets_url }}/assets/img/logo.png" height="32" alt="The CentOS Project"> <span class="manifestation"></span></a>
+        <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+          <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item" role="presentation"><a class="nav-link" href="{{ mailman_html_assets_url }}/download"><i class="fas fa-download"></i> Download</a></li>
+            <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-info-circle"></i> About</a>
+              <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/about">About CentOS</a>
+                <a class="dropdown-item" role="presentation" href="https://wiki.centos.org/FAQ">Frequently Asked Questions (FAQs)</a>
+                <a class="dropdown-item" role="presentation" href="https://wiki.centos.org/SpecialInterestGroups">Special Interest Groups (SIGs)</a>
+                <a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/variants">CentOS Variants</a>
+                <a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/about/governance">Governance</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-users"></i> Community</a>
+              <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="https://wiki.centos.org/Contribute">Contribute</a>
+                <a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/forums/">Forums</a>
+                <a class="dropdown-item" role="presentation" href="https://wiki.centos.org/GettingHelp/ListInfo">Mailing Lists</a>
+                <a class="dropdown-item" role="presentation" href="https://wiki.centos.org/irc">IRC</a>
+                <a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/community/calendar/">Calendar &amp; IRC Meeting List</a>
+                <a class="dropdown-item" role="presentation" href="http://planet.centos.org/">Planet</a>
+                <a class="dropdown-item" role="presentation" href="https://wiki.centos.org/ReportBugs">Submit Bug</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-book"></i> Documentation</a>
+              <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="https://wiki.centos.org/">Wiki</a>
+                <a class="dropdown-item" role="presentation" href="https://docs.centos.org/">Manuals</a>
+                <a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/keys">GPG Key Info</a>
+              </div>
+            </li>
+            <li class="nav-item" role="presentation"><a class="nav-link" href="https://wiki.centos.org/Documentation?action=show&amp;redirect=GettingHelp"><i class="fas fa-life-ring"></i> Help</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" href="{{ mailman_html_assets_url }}/search"><i class="fas fa-search"></i> Search</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="header header__page">
+      <h1 class="header__page__title">%(listname)s</h1>
+      <p class="header__page__description">%(who)s Authentication</p>
+    </header>
+
+    <main class="page">
+      <article class="page__content">
+        <div class="page__content__nav">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ mailman_html_assets_url }}/">Home</a></li>
+            <li class="breadcrumb-item"><a href="https://{{ mailman_url_host }}">Mailing Lists</a></li>
+            <li class="breadcrumb-item">%(listname)s %(who)s Authentication</li>
+          </ol>
+        </div>
+        <div class="page__content__mailman__admlogin">
+
+        %(message)s
+
+        <form method="post" action="%(path)s" name="f">
+        <div class="form-group mb-4 mt-4">
+        <div class="row">
+        <div class="col">
+          <input type="password" name="adminpw" class="form-control" id="adminpw" placeholder="Password" aria-describedby="adminpw">
+          <small id="adminpw" class="form-text text-muted">List %(who)s Password</small>
+        </div>
+        <div class="col">
+          <input type="submit" name="admlogin" value="Let me in..." class="btn btn-primary">
+        </div>
+      </div>
+        </div>
+      </form>
+
+      <div class="alert alert-info" role="alert">
+        <h4 class="alert-heading">Important!</h4>
+        <p>From this point on, you must have cookies enabled in your browser, otherwise no administrative changes will take effect.</p>
+        <hr/>
+        <p class="mb-0">Session cookies are used in Mailman's administrative interface so that you don't need to re-authenticate with every administrative operation.  This cookie will expire automatically when you exit your browser, or you can explicitly expire the cookie by hitting the <em>Logout</em> link under <em>Other Administrative Activities</em> (which you'll see once you successfully log in).</p>
+      </div>
+

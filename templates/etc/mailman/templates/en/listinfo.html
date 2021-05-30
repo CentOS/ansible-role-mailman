@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title><MM-List-Name> Info Page</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ mailman_html_assets_url }}/assets/img/favicon.png">
+    <link rel="stylesheet" href="{{ mailman_html_assets_url }}/assets/css/centos.bootstrap.min.css">
+	  <MM-Recaptcha-Script>
+  </head>
+  <body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="{{ mailman_html_assets_url }}/"><img src="{{ mailman_html_assets_url }}/assets/img/logo.png" height="32" alt="The CentOS Project"> <span class="manifestation"></span></a>
+        <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+          <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item" role="presentation"><a class="nav-link" href="{{ mailman_html_assets_url }}/download"><i class="fas fa-download"></i> Download</a></li>
+            <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-info-circle"></i> About</a>
+              <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/about">About CentOS</a>
+                <a class="dropdown-item" role="presentation" href="https://wiki.centos.org/FAQ">Frequently Asked Questions (FAQs)</a>
+                <a class="dropdown-item" role="presentation" href="https://wiki.centos.org/SpecialInterestGroups">Special Interest Groups (SIGs)</a>
+                <a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/variants">CentOS Variants</a>
+                <a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/about/governance">Governance</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-users"></i> Community</a>
+              <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="https://wiki.centos.org/Contribute">Contribute</a>
+                <a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/forums/">Forums</a>
+                <a class="dropdown-item" role="presentation" href="https://wiki.centos.org/GettingHelp/ListInfo">Mailing Lists</a>
+                <a class="dropdown-item" role="presentation" href="https://wiki.centos.org/irc">IRC</a>
+                <a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/community/calendar/">Calendar &amp; IRC Meeting List</a>
+                <a class="dropdown-item" role="presentation" href="http://planet.centos.org/">Planet</a>
+                <a class="dropdown-item" role="presentation" href="https://wiki.centos.org/ReportBugs">Submit Bug</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-book"></i> Documentation</a>
+              <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="https://wiki.centos.org/">Wiki</a>
+                <a class="dropdown-item" role="presentation" href="https://docs.centos.org/">Manuals</a>
+                <a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/keys">GPG Key Info</a>
+              </div>
+            </li>
+            <li class="nav-item" role="presentation"><a class="nav-link" href="https://wiki.centos.org/Documentation?action=show&amp;redirect=GettingHelp"><i class="fas fa-life-ring"></i> Help</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" href="{{ mailman_html_assets_url }}/search"><i class="fas fa-search"></i> Search</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="header header__page">
+      <h1 class="header__page__title"><MM-List-Name></h1>
+      <p class="header__page__description"><MM-List-Description></p>
+    </header>
+    <main class="page">
+      <article class="page__content">
+        <div class="page__content__nav">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ mailman_html_assets_url }}/">Home</a></li>
+            <li class="breadcrumb-item"><a href="https://{{ mailman_url_host }}/">Mailing Lists</a></li>
+            <li class="breadcrumb-item"><MM-List-Name></li>
+          </ol>
+        </div>
+        <div class="page__content__mailman__listinfo">
+
+  <p><MM-List-Info></p>
+
+	<p>To see the collection of prior postings to the list, visit the <MM-Archive><MM-List-Name> Archives</MM-Archive>. <MM-Restricted-List-Message></p>
+
+  <div class="mb-4"><MM-lang-form-start><MM-displang-box> <MM-list-langs><MM-form-end></div>
+
+  <section class="mb-3">
+  <h2>Using <MM-List-Name></h2>
+  <p>To post a message to all the list members, send email to <a href="mailto:<MM-Posting-Addr>"><MM-Posting-Addr></A>.</p>
+  <p>You can subscribe to the list, or change your existing subscription, in the sections below.</p>
+  </section>
+
+  <section class="mb-3">
+
+  <h2>Subscribing to <MM-List-Name></h2>
+  <p>Subscribe to <MM-List-Name> by filling out the following form.
+  <MM-List-Subscription-Msg>
+
+  <MM-Subscribe-Form-Start>
+
+  <div class="pt-3 pb-3 pr-5 pl-5 bg-light rounded">
+
+  <div class="row border-bottom p-2">
+    <div class="col">
+      <div class="row">Your email address:</div>
+    </div>
+    <div class="col">
+      <div class="row"><MM-Subscribe-Box></div>
+    </div>
+  </div>
+  <div class="row border-bottom p-2">
+    <div class="col">
+      <div class="row">Your name (optional):</div>
+    </div>
+    <div class="col">
+      <div class="row"><mm-fullname-box></div>
+    </div>
+  </div>
+  <div class="row p-2">
+    You may enter a privacy password below. This provides only mild security, but should prevent others from messing with your subscription.
+  </div>
+  <div class="row p-2">
+    <strong>Do not use a valuable password</strong>&nbsp; as it will occasionally be emailed back to you in cleartext.
+  </div>
+  <div class="row p-2">
+    You may enter a privacy password below. If you choose not to enter a password, one will be automatically generated for you, and it will be sent to you once you've confirmed your subscription.  You can always request a mail-back of your password when you edit your personal options.
+  </div>
+  <div class="row border-bottom p-2">
+    <MM-Reminder>
+  </div>
+
+  <div class="row border-bottom p-2">
+    <div class="col">
+      <div class="row">Pick a password:</div>
+    </div>
+    <div class="col">
+      <div class="row"><MM-New-Password-Box></div>
+    </div>
+  </div>
+  <div class="row border-bottom p-2">
+    <div class="col">
+      <div class="row">Reenter password to confirm:</div>
+    </div>
+    <div class="col">
+      <div class="row"><MM-Confirm-Password></div>
+    </div>
+  </div>
+  <div class="row border-bottom p-2">
+    <div class="col">
+      <div class="row">Which language do you prefer to display your messages?</div>
+    </div>
+    <div class="col">
+      <div class="row"><MM-list-langs></div>
+    </div>
+  </div>
+  <mm-digest-question-start>
+  <div class="row border-bottom p-2">
+    <div class="col pt-2">
+      <div class="row">Would you like to receive list mail batched in a daily digest?</div>
+    </div>
+    <div class="col">
+      <div class="row"><span class="pt-2 ptb-2 pr-2"><MM-Undigest-Radio-Button> No</span><span class="pt-2 pb-2 pr-2"><MM-Digest-Radio-Button> Yes</span></div>
+    </div>
+  </div>
+  <mm-digest-question-end>
+  <div class="row border-bottom p-2">
+    <div class="col">
+      <div class="row">Please fill out the following captcha:</div>
+    </div>
+    <div class="col">
+      <div class="row"><mm-recaptcha-javascript></div>
+    </div>
+  </div>
+
+  <div class="mt-4 text-center"><MM-Subscribe-Button></div>
+
+  </div>
+  <MM-Form-End>
+</section>
+
+<section>
+
+  <a name="subscribers"><h2 class="border-bottom"><MM-List-Name> Subscribers</h2></a>
+
+  <div class="pt-3 pb-3 pr-4 pl-4 bg-light mb-1 rounded">
+
+	<MM-Roster-Form-Start>
+	<MM-Roster-Option>
+	<MM-Form-End>
+  </div>
+
+  <div class="pt-3 pb-3 pr-4 pl-4 bg-light mb-1 rounded">
+	<MM-Options-Form-Start>
+	<MM-Editing-Options>
+	<MM-Form-End>        
+  </div>
+
+</section>
+
+<MM-Mailman-Footer>
+
+      </div>
+    </article>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <section class="sponsor">
+          <div class="sponsor__message">
+            <h6><i class="fas fa-hand-holding-heart"></i> Sponsor</h6>
+            <p>This site would not be possible without the support of <a href="http://steadfast.net/">steadfast</a>. We would like to thank <a href="http://steadfast.net/">steadfast</a> for being a CentOS sponsor. If you value our work, please consider <a href="{{ mailman_html_assets_url }}/sponsors/">becoming a sponsor</a>!</p>
+          </div>
+          <div class="sponsor__logo">
+            <a href="http://steadfast.net/" rel="nofollow"><img src="{{ mailman_html_assets_url }}/images/sponsors/steadfast.png"></a>
+          </div>
+        </section>
+      </div>
+      <div class="row">
+        <section class="links">
+          <h6><i class="fas fa-info-circle"></i> About</h6>
+          <ul>
+            <li><a href="{{ mailman_html_assets_url }}/about">About CentOS</a></li>
+            <li><a href="https://wiki.centos.org/FAQ">Frequently Asked Questions (FAQs)</a></li>
+            <li><a href="https://wiki.centos.org/SpecialInterestGroups">Special Interest Groups (SIGs)</a></li>
+            <li><a href="{{ mailman_html_assets_url }}/variants">CentOS Variants</a></li>
+            <li><a href="{{ mailman_html_assets_url }}/about/governance">Governance</a></li>
+          </ul>
+        </section>
+        <section class="links">
+          <h6><i class="fas fa-users"></i> Community</h6>
+          <ul>
+            <li><a href="https://wiki.centos.org/Contribute">Contribute</a></li>
+            <li><a href="{{ mailman_html_assets_url }}/forums/">Forums</a></li>
+            <li><a href="https://wiki.centos.org/GettingHelp/ListInfo">Mailing Lists</a></li>
+            <li><a href="https://wiki.centos.org/irc">IRC</a></li>
+            <li><a href="{{ mailman_html_assets_url }}/community/calendar/">Calendar &amp; IRC Meeting List</a></li>
+            <li><a href="http://planet.centos.org/">Planet</a></li>
+            <li><a href="https://wiki.centos.org/ReportBugs">Submit Bug</a></li>
+          </ul>
+        </section>
+        <section class="project">
+          <h4>The CentOS Project</h4>
+          <p class="lead">Community-driven free software effort focused around the goal of providing a rich base platform for open source communities to build upon.</p>
+          <div class="lead social">
+            <a href="https://www.facebook.com/groups/centosproject/"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/centosproject"><i class="fab fa-twitter"></i></a>
+            <a href="https://youtube.com/TheCentOSProject"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/groups/22405"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.reddit.com/r/CentOS/"><i class="fab fa-reddit"></i></a>
+          </div>
+        </section>
+      </div>
+      <div class="row">
+        <section class="copyright">
+          <p>Copyright &copy; 2021 The CentOS Project  | <a href="{{ mailman_html_assets_url }}/legal">Legal</a> | <a href="{{ mailman_html_assets_url }}/privacy">Privacy</a> | <a href="https://git.centos.org/centos/centos.org">Site source</a></p>
+        </section>
+      </div>
+    </div>
+  </footer>
+  <script src="{{ mailman_html_assets_url }}/assets/js/jquery.min.js"></script>
+  <script src="{{ mailman_html_assets_url }}/assets/js/bootstrap.min.js"></script>
+</body>
+</html>

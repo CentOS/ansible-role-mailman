@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="robots" content="noindex,follow">
+    %(meta)s
+    <title>The %(listname)s Archives</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ mailman_html_assets_url }}/assets/img/favicon.png">
+    <link rel="stylesheet" href="{{ mailman_html_assets_url }}/assets/css/centos.bootstrap.min.css">
+  </head>
+  <body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="{{ mailman_html_assets_url }}/"><img src="{{ mailman_html_assets_url }}/assets/img/logo.png" height="32" alt="The CentOS Project"> <span class="manifestation"></span></a>
+        <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+          <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item" role="presentation"><a class="nav-link" href="{{ mailman_html_assets_url }}/download"><i class="fas fa-download"></i> Download</a></li>
+            <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-info-circle"></i> About</a>
+              <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/about">About CentOS</a>
+                <a class="dropdown-item" role="presentation" href="https://wiki.centos.org/FAQ">Frequently Asked Questions (FAQs)</a>
+                <a class="dropdown-item" role="presentation" href="https://wiki.centos.org/SpecialInterestGroups">Special Interest Groups (SIGs)</a>
+                <a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/variants">CentOS Variants</a>
+                <a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/about/governance">Governance</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-users"></i> Community</a>
+              <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="https://wiki.centos.org/Contribute">Contribute</a>
+                <a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/forums/">Forums</a>
+                <a class="dropdown-item" role="presentation" href="https://wiki.centos.org/GettingHelp/ListInfo">Mailing Lists</a>
+                <a class="dropdown-item" role="presentation" href="https://wiki.centos.org/irc">IRC</a>
+                <a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/community/calendar/">Calendar &amp; IRC Meeting List</a>
+                <a class="dropdown-item" role="presentation" href="http://planet.centos.org/">Planet</a>
+                <a class="dropdown-item" role="presentation" href="https://wiki.centos.org/ReportBugs">Submit Bug</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-book"></i> Documentation</a>
+              <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="https://wiki.centos.org/">Wiki</a>
+                <a class="dropdown-item" role="presentation" href="https://docs.centos.org/">Manuals</a>
+                <a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/keys">GPG Key Info</a>
+              </div>
+            </li>
+            <li class="nav-item" role="presentation"><a class="nav-link" href="https://wiki.centos.org/Documentation?action=show&amp;redirect=GettingHelp"><i class="fas fa-life-ring"></i> Help</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" href="{{ mailman_html_assets_url }}/search"><i class="fas fa-search"></i> Search</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="header header__page">
+      <h1 class="header__page__title">%(listname)s Archives</h1>
+      <p class="header__page__description"></p>
+    </header>
+    <main class="page">
+      <article class="page__content">
+        <div class="page__content__nav">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ mailman_html_assets_url }}/">Home</a></li>
+            <li class="breadcrumb-item"><a href="https://{{ mailman_url_host }}/">Mailing Lists</a></li>
+            <li class="breadcrumb-item"><a href="%(listinfo)s">%(listname)s</a></li>
+            <li class="breadcrumb-item">Archives</li>
+          </ol>
+        </div>
+        <div class="page__content__mailman__archtocnombox">
+
+        %(noarchive_msg)s
+        %(archive_listing_start)s
+        %(archive_listing)s
+        %(archive_listing_end)s
+
+        </div>
+      </article>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <section class="sponsor">
+            <div class="sponsor__message">
+              <h6><i class="fas fa-hand-holding-heart"></i> Sponsor</h6>
+              <p>This site would not be possible without the support of <a href="http://steadfast.net/">steadfast</a>. We would like to thank <a href="http://steadfast.net/">steadfast</a> for being a CentOS sponsor. If you value our work, please consider <a href="{{ mailman_html_assets_url }}/sponsors/">becoming a sponsor</a>!</p>
+            </div>
+            <div class="sponsor__logo">
+              <a href="http://steadfast.net/" rel="nofollow"><img src="{{ mailman_html_assets_url }}/images/sponsors/steadfast.png"></a>
+            </div>
+          </section>
+        </div>
+        <div class="row">
+          <section class="links">
+            <h6><i class="fas fa-info-circle"></i> About</h6>
+            <ul>
+              <li><a href="{{ mailman_html_assets_url }}/about">About CentOS</a></li>
+              <li><a href="https://wiki.centos.org/FAQ">Frequently Asked Questions (FAQs)</a></li>
+              <li><a href="https://wiki.centos.org/SpecialInterestGroups">Special Interest Groups (SIGs)</a></li>
+              <li><a href="{{ mailman_html_assets_url }}/variants">CentOS Variants</a></li>
+              <li><a href="{{ mailman_html_assets_url }}/about/governance">Governance</a></li>
+            </ul>
+          </section>
+          <section class="links">
+            <h6><i class="fas fa-users"></i> Community</h6>
+            <ul>
+              <li><a href="https://wiki.centos.org/Contribute">Contribute</a></li>
+              <li><a href="{{ mailman_html_assets_url }}/forums/">Forums</a></li>
+              <li><a href="https://wiki.centos.org/GettingHelp/ListInfo">Mailing Lists</a></li>
+              <li><a href="https://wiki.centos.org/irc">IRC</a></li>
+              <li><a href="{{ mailman_html_assets_url }}/community/calendar/">Calendar &amp; IRC Meeting List</a></li>
+              <li><a href="http://planet.centos.org/">Planet</a></li>
+              <li><a href="https://wiki.centos.org/ReportBugs">Submit Bug</a></li>
+            </ul>
+          </section>
+          <section class="project">
+            <h4>The CentOS Project</h4>
+            <p class="lead">Community-driven free software effort focused around the goal of providing a rich base platform for open source communities to build upon.</p>
+            <div class="lead social">
+              <a href="https://www.facebook.com/groups/centosproject/"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://twitter.com/centosproject"><i class="fab fa-twitter"></i></a>
+              <a href="https://youtube.com/TheCentOSProject"><i class="fab fa-youtube"></i></a>
+              <a href="https://www.linkedin.com/groups/22405"><i class="fab fa-linkedin"></i></a>
+              <a href="https://www.reddit.com/r/CentOS/"><i class="fab fa-reddit"></i></a>
+            </div>
+          </section>
+        </div>
+        <div class="row">
+          <section class="copyright">
+            <p>Copyright &copy; 2021 The CentOS Project  | <a href="{{ mailman_html_assets_url }}/legal">Legal</a> | <a href="{{ mailman_html_assets_url }}/privacy">Privacy</a> | <a href="https://git.centos.org/centos/centos.org">Site source</a></p>
+          </section>
+        </div>
+      </div>
+    </footer>
+    <script src="{{ mailman_html_assets_url }}/assets/js/jquery.min.js"></script>
+    <script src="{{ mailman_html_assets_url }}/assets/js/bootstrap.min.js"></script>
+  </body>
+</html>

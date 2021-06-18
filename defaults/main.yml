@@ -39,7 +39,7 @@ mailman_html_assets_url: "https://www.centos.org"
 # html templates injected into mailman python code
 mailman_html_tpl_head: |
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <link rel="stylesheet" href="{{ mailman_html_assets_url }}/assets/css/centos.bootstrap.min.css">
+    <link rel="stylesheet" href="{{ mailman_html_assets_url }}/assets/css/centos-lists.bootstrap.min.css">
   
 mailman_html_tpl_bodystart: |
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark">

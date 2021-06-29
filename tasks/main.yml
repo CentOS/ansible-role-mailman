@@ -2,7 +2,7 @@
 
 - name: pkgs should be installed for mailman
   yum:
-    name: mailman
+    name: ['mailman', 'patch']
     state: latest
 
 - name: MailMan config

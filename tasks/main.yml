@@ -87,8 +87,8 @@
     src: "patches/{{ item }}"
     basedir: /
   with_items:
-    - mm-cgi-auth.patch
-    - mm-htmlformat.patch
+    - mm-cgi-auth.py.patch
+    - "{{ ansible_facts.distribution }}{{ ansible_facts.distribution_major_version }}-mm-htmlformat.py.patch"
   tags:
     - patch
 

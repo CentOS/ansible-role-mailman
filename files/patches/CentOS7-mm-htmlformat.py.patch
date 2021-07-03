@@ -1,0 +1,43 @@
+--- /usr/lib/mailman/Mailman/htmlformat.py.orig	2021-07-02 20:18:31.909671041 +0000
++++ /usr/lib/mailman/Mailman/htmlformat.py	2021-07-02 20:35:59.583439905 +0000
+@@ -306,20 +306,19 @@
+         if not self.suppress_head:
+             kws.setdefault('bgcolor', self.bgcolor)
+             tab = ' ' * indent
+-            output.extend([tab,
+-                           '<HTML>',
+-                           '<HEAD>'
+-                           ])
++            output.extend([tab, 
++                          '<!DOCTYPE html>',
++                          '<html lang="en">',
++                          '<head>'
++                          ])
+             if mm_cfg.IMAGE_LOGOS:
+-                output.append('<LINK REL="SHORTCUT ICON" HREF="%s">' %
+-                              (mm_cfg.IMAGE_LOGOS + mm_cfg.SHORTCUT_ICON))
++                output.append('<link rel="shortcut icon" href="%s">' % (mm_cfg.WEB_TPL_FAVICON))
+             # Hit all the bases
+-            output.append('<META http-equiv="Content-Type" '
+-                          'content="text/html; charset=%s">' % charset)
++            output.append('<meta http-equiv="content-type" content="text/html; charset=%s">' % charset)
+             if self.title:
+-                output.append('%s<TITLE>%s</TITLE>' % (tab, self.title))
++                output.append('%s<title>%s</title>' % (tab, self.title))
+             output.append('%s' % (mm_cfg.WEB_TPL_HEAD))
+-            output.append('%s</HEAD>' % tab)
++            output.append('%s</head>' % tab)
+             quals = []
+             # Default link colors
+             if mm_cfg.WEB_VLINK_COLOR:
+@@ -341,8 +340,8 @@
+             if mm_cfg.WEB_TPL_BODYCLOSE:
+                 output.append(mm_cfg.WEB_TPL_BODYCLOSE)
+             else:
+-                output.append('%s</BODY>' % tab)
+-                output.append('%s</HTML>' % tab)
++                output.append('%s</body>' % tab)
++                output.append('%s</html>' % tab)
+         return NL.join(output)
+ 
+     def addError(self, errmsg, tag=None):

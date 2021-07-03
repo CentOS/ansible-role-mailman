@@ -55,6 +55,7 @@ mailman_html_tpl_bodystart: |
     <a class="dropdown-item" role="presentation" href="https://wiki.centos.org/SpecialInterestGroups">Special Interest Groups (SIGs)</a>
     <a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/variants">CentOS Variants</a>
     <a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/about/governance">Governance</a>
+    <a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/code-of-conduct">Code of Conduct</a>
     </div>
     </li>
     <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-users"></i> Community</a>
@@ -119,6 +120,7 @@ mailman_html_tpl_bodyclose: |
     <li><a href="https://wiki.centos.org/SpecialInterestGroups">Special Interest Groups (SIGs)</a></li>
     <li><a href="{{ mailman_html_assets_url }}/variants">CentOS Variants</a></li>
     <li><a href="{{ mailman_html_assets_url }}/about/governance">Governance</a></li>
+    <li><a href="{{ mailman_html_assets_url }}/code-of-conduct">Code of Conduct</a></li>
     </ul>
     </section>
     <section class="links">

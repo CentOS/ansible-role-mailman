@@ -38,7 +38,6 @@ mailman_html_tpl_head: |
 mailman_html_tpl_bodystart: |
   <header class="header header__page">
   <h1 class="header__page__title">Mailing Lists</h1>
-  <p class="header__page__description">Welcome!</p>
   </header>
   <div class="hr">
   <div class="hr__centos-color-0"></div>

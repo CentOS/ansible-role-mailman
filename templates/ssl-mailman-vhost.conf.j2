@@ -1,5 +1,6 @@
 <VirtualHost *:443>
 DocumentRoot "/var/www/html/"
+ServerName {{ mailman_httpd_hostname }}
 ErrorLog logs/ssl-{{ mailman_httpd_hostname }}_error.log
 TransferLog logs/ssl-{{ mailman_httpd_hostname }}_access.log
 LogLevel warn

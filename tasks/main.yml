@@ -44,7 +44,7 @@
   when: mailman_sitelist is changed
 
 - name: Creating lists if needed
-  command: "/usr/lib/mailman/bin/newlist -q {{ item.name }} {{ item.admin }} {{ item.password }}"
+  command: "/usr/lib/mailman/bin/newlist -q {{ item.name | lower }} {{ item.admin }} {{ item.password }}"
   when: "item.name|lower not in mailman.lists"
   with_items: "{{ mailman_lists }}"
   loop_control:
@@ -55,7 +55,7 @@
 - name: Creating list settings
   template:
     src: list-settings.cfg.j2
-    dest: "/etc/mailman/list_configs/{{ item.name }}-settings.cfg"
+    dest: "/etc/mailman/list_configs/{{ item.name | lower }}-settings.cfg"
     mode: 0644
   with_items: "{{ mailman_lists }}"
   loop_control:
@@ -65,7 +65,7 @@
     - lists
 
 - name: Configuring list when changed
-  command: "/usr/lib/mailman/bin/config_list -i /etc/mailman/list_configs/{{ item.item.name }}-settings.cfg {{ item.item.name | lower }}"
+  command: "/usr/lib/mailman/bin/config_list -i /etc/mailman/list_configs/{{ item.item.name | lower }}-settings.cfg {{ item.item.name | lower }}"
   with_items: "{{ list_settings.results }}"
   when: item.changed
   loop_control:
@@ -78,9 +78,10 @@
     src: "{{ item }}"
     dest: "/etc/mailman/templates/en/"
   loop: "{{ lookup('fileglob', 'templates/etc/mailman/templates/en/*', wantlist=True) }}"
+  register: templates_import
+  notify: restart_mailman
   tags:
     - theme
-  notify: restart_mailman
 
 - name: Patching mailman for our templates
   patch:
@@ -103,6 +104,15 @@
   include_tasks: httpd.yml
   tags:
     - tls
+
+- name: Update archives to apply template changes
+  shell: "/usr/lib/mailman/bin/arch {{ item.name | lower }} || true"
+  when: templates_import.changed
+  with_items: "{{ mailman_lists }}"
+  loop_control:
+    label: '{{ item.name }}'
+  tags:
+    - theme
 
 - name: mailman should be started and enabled
   service:

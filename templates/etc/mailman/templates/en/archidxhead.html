@@ -1,72 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <meta name="robots" content="noindex,follow">
-    <title>The %(listname)s %(archive)s Archive by %(archtype)s</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ mailman_html_assets_url }}/assets/img/favicon.png">
-    <link rel="stylesheet" href="{{ mailman_html_assets_url }}/assets/css/centos-lists.bootstrap.min.css">
-  </head>
-  <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
-      <div class="container">
-        <a class="navbar-brand" href="{{ mailman_html_assets_url }}/"><img src="{{ mailman_html_assets_url }}/assets/img/logo.png" height="32" alt="The CentOS Project"> <span class="manifestation"></span></a>
-        <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navcol-1">
-          <ul class="nav navbar-nav ml-auto">
-            <li class="nav-item" role="presentation"><a class="nav-link" href="{{ mailman_html_assets_url }}/download"><i class="fas fa-download"></i> Download</a></li>
-            <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-info-circle"></i> About</a>
-              <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/about">About CentOS</a>
-                <a class="dropdown-item" role="presentation" href="https://wiki.centos.org/FAQ">Frequently Asked Questions (FAQs)</a>
-                <a class="dropdown-item" role="presentation" href="https://wiki.centos.org/SpecialInterestGroups">Special Interest Groups (SIGs)</a>
-                <a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/variants">CentOS Variants</a>
-                <a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/about/governance">Governance</a>
-                <a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/code-of-conduct">Code of Conduct</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-users"></i> Community</a>
-              <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="https://wiki.centos.org/Contribute">Contribute</a>
-                <a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/forums/">Forums</a>
-                <a class="dropdown-item" role="presentation" href="https://wiki.centos.org/GettingHelp/ListInfo">Mailing Lists</a>
-                <a class="dropdown-item" role="presentation" href="https://wiki.centos.org/irc">IRC</a>
-                <a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/community/calendar/">Calendar &amp; IRC Meeting List</a>
-                <a class="dropdown-item" role="presentation" href="http://planet.centos.org/">Planet</a>
-                <a class="dropdown-item" role="presentation" href="https://wiki.centos.org/ReportBugs">Submit Bug</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-book"></i> Documentation</a>
-              <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="https://wiki.centos.org/">Wiki</a>
-                <a class="dropdown-item" role="presentation" href="https://docs.centos.org/">Manuals</a>
-                <a class="dropdown-item" role="presentation" href="{{ mailman_html_assets_url }}/keys">GPG Key Info</a>
-              </div>
-            </li>
-            <li class="nav-item" role="presentation"><a class="nav-link" href="https://wiki.centos.org/Documentation?action=show&amp;redirect=GettingHelp"><i class="fas fa-life-ring"></i> Help</a></li>
-            <li class="nav-item" role="presentation"><a class="nav-link" href="{{ mailman_html_assets_url }}/search"><i class="fas fa-search"></i> Search</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<meta name="robots" content="noindex,follow">
+<title>%(listname)s Archive %(archive)s by %(archtype)s</title>
+<link rel="icon" type="image/png" sizes="16x16" href="{{ httpd_assets_url }}/assets/img/favicon.png">
+<link rel="stylesheet" href="{{ httpd_assets_url }}/assets/css/centos-lists.bootstrap.min.css">
+</head>
+<body>
+{% include "templates/httpd_navbar.j2" %}
 
-    <header class="header header__page">
-      <h1 class="header__page__title">%(listname)s Archives</h1>
-      <p class="header__page__description">%(archive)s by %(archtype)s</p>
-    </header>
-    <main class="page">
-      <article class="page__content">
-        <div class="page__content__nav">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ mailman_html_assets_url }}/">Home</a></li>
-            <li class="breadcrumb-item"><a href="https://{{ mailman_url_host }}">Mailing Lists</a></li>
-            <li class="breadcrumb-item"><a href="%(listinfo)s">%(listname)s</a></li>
-            <li class="breadcrumb-item">%(archive)s by %(archtype)s</li>
-          </ol>
-        </div>
-        <div class="page__content__mailman__archidxhead">
-
-        <div class="starting"><strong>Starting:</strong> <em>%(firstdate)s</em></div>
-        <div class="ending"><strong>Ending:</strong> <em>%(lastdate)s</em><div>
-        <div class="messages-sorted-by"><strong>Messages sorted by:</strong> %(thread_ref)s %(subject_ref)s %(author_ref)s %(date_ref)s</div>
-        <div class="messages-total"><strong>Messages:</strong> %(size)s</div>
-
-        <ul class="messages-entries">
+<header class="header header__page">
+<h1 class="header__page__title">%(listname)s</h1>
+<p class="header__page__description">Archive %(archive)s, starting %(firstdate)s, ending %(lastdate)s.<br/>Viewing %(size)s messages by %(archtype)s.</p>
+</header>
+<div class="hr">
+<div class="hr__centos-color-0"></div>
+<div class="hr__centos-color-1"></div>
+<div class="hr__centos-color-2"></div>
+<div class="hr__centos-color-3"></div>
+</div>
+<main class="aside">
+<article class="aside__content">
+<div class="aside__content__mailman__archidxhead">
+<ul class="messages-entries">

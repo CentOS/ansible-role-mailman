@@ -108,14 +108,16 @@ RECAPTCHA_PUBLIC_KEY = '{{ mailman_recaptcha_pub_key }}'
 {% endif %}
 
 # Theme settings
-WEB_TPL_FAVICON = "{{ mailman_html_assets_url }}/assets/img/favicon.png"
+WEB_TPL_FAVICON = "{{ httpd_assets_url }}/assets/img/favicon.png"
 WEB_TPL_HEAD = """
 {{ mailman_html_tpl_head }}
 """
 WEB_TPL_BODYSTART = """
+{% include "templates/httpd_navbar.j2" %}
 {{ mailman_html_tpl_bodystart }}
 """
 WEB_TPL_BODYCLOSE = """
 {{ mailman_html_tpl_bodyclose }}
+{% include "templates/httpd_footer.j2" %}
 """
 

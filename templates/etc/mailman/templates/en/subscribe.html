@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title><MM-List-Name> Subscription results</title>
+<link rel="icon" type="image/png" sizes="16x16" href="{{ httpd_assets_url }}/assets/img/favicon.png">
+<link rel="stylesheet" href="{{ httpd_assets_url }}/assets/css/centos-lists.bootstrap.min.css">
+</head>
+<body>
+{% include "templates/httpd_navbar.j2" %}
+
+<header class="header header__page">
+<h1 class="header__page__title"><MM-List-Name></h1>
+<p class="header__page__description">Subscription results</p>
+</header>
+<div class="hr">
+<div class="hr__centos-color-0"></div>
+<div class="hr__centos-color-1"></div>
+<div class="hr__centos-color-2"></div>
+<div class="hr__centos-color-3"></div>
+</div>
+<main class="page">
+<article class="page__content">
+<div class="page__content__nav">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="{{ httpd_assets_url }}/">Home</a></li>
+<li class="breadcrumb-item"><a href="https://{{ mailman_url_host }}/">Mailing Lists</a></li>
+<li class="breadcrumb-item"><MM-List-Name> Subscription results</li>
+</ol>
+</div>
+<div class="page__content__mailman__subscribe">
+
+<MM-Results>
+<MM-Mailman-Footer>
+
+</div>
+</article>
+</main>
+
+{% include "templates/httpd_footer.j2" %}

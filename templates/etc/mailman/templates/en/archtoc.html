@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<meta name="robots" content="noindex,follow">
+%(meta)s
+<title>%(listname)s Archives</title>
+<link rel="icon" type="image/png" sizes="16x16" href="{{ httpd_assets_url }}/assets/img/favicon.png">
+<link rel="stylesheet" href="{{ httpd_assets_url }}/assets/css/centos-lists.bootstrap.min.css">
+</head>
+<body>
+{% include "templates/httpd_navbar.j2" %}
+
+<header class="header header__page">
+<h1 class="header__page__title">%(listname)s</h1>
+<p class="header__page__description">Archives</p>
+</header>
+<div class="hr">
+<div class="hr__centos-color-0"></div>
+<div class="hr__centos-color-1"></div>
+<div class="hr__centos-color-2"></div>
+<div class="hr__centos-color-3"></div>
+</div>
+<main class="page">
+<article class="page__content">
+<div class="page__content__nav">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="{{ httpd_assets_url }}/">Home</a></li>
+<li class="breadcrumb-item"><a href="https://{{ mailman_url_host }}/">Mailing Lists</a></li>
+<li class="breadcrumb-item"><a href="%(listinfo)s">%(listname)s</a></li>
+<li class="breadcrumb-item active">Archives</li>
+</ol>
+</div>
+<div class="page__content__mailman__archtoc">
+
+<p>You can get <a href="%(listinfo)s">more information about this list</a> or you can <a href="%(fullarch)s">download the full raw archive</a> (%(size)s).</p>
+
+%(noarchive_msg)s
+%(archive_listing_start)s
+%(archive_listing)s
+%(archive_listing_end)s
+
+</div>
+</article>
+</main>
+
+{% include "templates/httpd_footer.j2" %}

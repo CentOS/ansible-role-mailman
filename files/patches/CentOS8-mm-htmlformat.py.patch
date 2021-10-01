@@ -1,0 +1,66 @@
+--- /usr/lib/mailman/Mailman/htmlformat.py.orig	2021-05-30 23:08:49.942626640 +0000
++++ /usr/lib/mailman/Mailman/htmlformat.py	2021-05-30 23:09:37.250778260 +0000
+@@ -306,18 +306,23 @@
+         if not self.suppress_head:
+             kws.setdefault('bgcolor', self.bgcolor)
+             tab = ' ' * indent
+-            output.extend([tab,
+-                           '<HTML>',
+-                           '<HEAD>'
+-                           ])
++            output.extend(['<!DOCTYPE html>',
++                          '<html lang="en">',
++                          '<head>'
++                          ])
+             if mm_cfg.IMAGE_LOGOS:
+-                output.append('<LINK REL="SHORTCUT ICON" HREF="%s">' %
+-                              (mm_cfg.IMAGE_LOGOS + mm_cfg.SHORTCUT_ICON))
++                if mm_cfg.WEB_TPL_FAVICON:
++                    output.append('<link rel="shortcut icon" href="%s">' %
++                                 (mm_cfg.WEB_TPL_FAVICON))
++                else:
++                    output.append('<link rel="shortcut icon" href="%s">' %
++                                 (mm_cfg.IMAGE_LOGOS + mm_cfg.SHORTCUT_ICON))
+             # Hit all the bases
+-            output.append('<META http-equiv="Content-Type" '
++            output.append('<meta http-equiv="content-type" '
+                           'content="text/html; charset=%s">' % charset)
+             if self.title:
+-                output.append('%s<TITLE>%s</TITLE>' % (tab, self.title))
++                output.append('%s<title>%s</title>' % (tab, self.title))
++            output.append('%s' % (mm_cfg.WEB_TPL_HEAD))
+             # Add CSS to visually hide some labeling text but allow screen
+             # readers to read it.
+             output.append("""\
+@@ -333,7 +338,7 @@
+ """)
+             if mm_cfg.WEB_HEAD_ADD:
+                 output.append(mm_cfg.WEB_HEAD_ADD)
+-            output.append('%s</HEAD>' % tab)
++            output.append('%s</head>' % tab)
+             quals = []
+             # Default link colors
+             if mm_cfg.WEB_VLINK_COLOR:
+@@ -344,15 +349,19 @@
+                 kws.setdefault('link', mm_cfg.WEB_LINK_COLOR)
+             for k, v in kws.items():
+                 quals.append('%s="%s"' % (k, v))
+-            output.append('%s<BODY %s' % (tab, SPACE.join(quals)))
++            output.append('%s<body %s' % (tab, SPACE.join(quals)))
+             # Language direction
+             direction = Utils.GetDirection(self.language)
+             output.append('dir="%s">' % direction)
++            output.append('%s' % (mm_cfg.WEB_TPL_BODYSTART))
+         # Always do this...
+         output.append(Container.Format(self, indent))
+         if not self.suppress_head:
+-            output.append('%s</BODY>' % tab)
+-            output.append('%s</HTML>' % tab)
++            if mm_cfg.WEB_TPL_BODYCLOSE:
++                output.append(mm_cfg.WEB_TPL_BODYCLOSE)
++            else:
++                output.append('%s</body>' % tab)
++                output.append('%s</html>' % tab)
+         return NL.join(output)
+ 
+     def addError(self, errmsg, tag=None):

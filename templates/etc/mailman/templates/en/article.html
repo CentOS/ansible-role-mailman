@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<meta name="robots" content="noindex,follow">
+<title>%(title)s</title>
+<link rel="index" href="index.html" >
+<link rel="made" href="mailto:%(email_url)s?subject=re:%%20%(subject_url)s&in-reply-to=%(in_reply_to_url)s">
+%(prev)s
+%(next)s
+<link rel="icon" type="image/png" sizes="16x16" href="{{ httpd_assets_url }}/assets/img/favicon.png">
+<link rel="stylesheet" href="{{ httpd_assets_url }}/assets/css/centos-lists.bootstrap.min.css">
+</head>
+<body>
+{% include "templates/httpd_navbar.j2" %}
+
+<header class="header header__page">
+<h1 class="header__page__title">%(subject_html)s</h1>
+<p class="header__page__description">%(datestr_html)s <br/> %(author_html)s &lt;<a href="mailto:%(email_url)s?Subject=Re:%%20%(subject_url)s&In-Reply-To=%(in_reply_to_url)s" title="%(subject_html)s">%(email_html)s</a>&gt;</p>
+</header>
+<div class="hr">
+<div class="hr__centos-color-0"></div>
+<div class="hr__centos-color-1"></div>
+<div class="hr__centos-color-2"></div>
+<div class="hr__centos-color-3"></div>
+</div>
+<main class="aside">
+<article class="aside__content">
+<div class="aside__content__mailman__article">
+<!--beginarticle-->
+%(body)s
+<!--endarticle-->
+</div>
+</article>
+<aside class="aside__nav">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="{{ httpd_assets_url }}/">Home</a></li>
+<li class="breadcrumb-item"><a href="https://{{ mailman_url_host }}">Mailing Lists</a></li>
+<li class="breadcrumb-item"><a href="%(listurl)s">%(listname)s</a></li>
+<li class="breadcrumb-item active">Archives
+<span class="ml-1">sorted by <a href="date.html#%(sequence)s">date</a></span>
+<span class="ml-1">| <a href="thread.html#%(sequence)s">thread</a></span>
+<span class="ml-1">| <a href="subject.html#%(sequence)s">subject</a></span>
+<span class="ml-1">| <a href="author.html#%(sequence)s">author</a></span>
+</li>
+<li class="breadcrumb-item active">%(title)s</li>
+</ol>
+<div class="toc">
+<ul>
+<!--threads-->
+%(prev_wsubj)s
+%(next_wsubj)s
+</ul>
+</div>
+</aside>
+</main>
+
+{% include "templates/httpd_footer.j2" %}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>%(realname)s Private Archives Authentication</title>
+<link rel="icon" type="image/png" sizes="16x16" href="{{ httpd_assets_url }}/assets/img/favicon.png">
+<link rel="stylesheet" href="{{ httpd_assets_url }}/assets/css/centos-lists.bootstrap.min.css">
+</head>
+<body>
+{% include "templates/httpd_navbar.j2" %}
+
+<header class="header header__page">
+<h1 class="header__page__title">%(realname)s</h1>
+<p class="header__page__description">Private archives authentication.</p>
+</header>
+
+<div class="hr">
+<div class="hr__centos-color-0"></div>
+<div class="hr__centos-color-1"></div>
+<div class="hr__centos-color-2"></div>
+<div class="hr__centos-color-3"></div>
+</div>
+<main class="page">
+<article class="page__content">
+<div class="page__content__nav">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="{{ httpd_assets_url }}/">Home</a></li>
+<li class="breadcrumb-item"><a href="https://{{ mailman_url_host }}/">Mailing Lists</a></li>
+<li class="breadcrumb-item">%(realname) private archives authentication</li>
+</ol>
+</div>
+<div class="page__content__mailman__private">
+
+<form method="post" action="%(action)s" name="f">
+%(message)s
+<table class="table">
+<tr>
+<td colspan="2" width="100%%" bgcolor="#99ccff" align="center">
+<strong><font color="#000000" size="+1">%(realname)s Private Archives Authentication</font></strong>
+</td>
+</tr>
+<tr>
+<td><div align="right">Email address:</div></td>
+<td><input type="text" name="username" size="30"></td>
+</tr>
+<tr>
+<td><div align="right">Password:</div></td>
+<td><input type="password" name="password" size="30"></td>
+</tr>
+<tr>
+<td colspan="2" align="middle"><input type="submit" name="submit" class="btn btn-light" value="Let me in...">
+</td>
+</tr>
+</table>
+
+<p><strong><em>Important:</em></strong> From this point on, you must have
+cookies enabled in your browser, otherwise you will have to re-authenticate
+with every operation.
+
+<p>Session cookies are used in Mailman's private archive interface so that
+you don't need to re-authenticate with every operation.  This cookie will
+expire automatically when you exit your browser, or you can explicitly
+expire the cookie by visiting your member options page and clicking the
+<em>Log out</em> button.  <p>
+
+<table class="table">
+<tr>
+<td colspan="2" width="100%%" bgcolor="#99CCFF" align="CENTER">
+<strong><font color="#000000" size="+1">Password Reminder</font></strong>
+</td>
+</tr>
+<tr>
+<td>If you don't remember your password, enter your email address
+above and click the <em>Remind</em> button and your
+password will be emailed to you.</td>
+</tr>
+<tr>
+<td><center><input name="login-remind" type="submit" value="Remind" class="btn btn-light"></center></td>
+</tr>
+</table>
+</form>
+
+</div>
+</article>
+</main>
+
+{% include "templates/httpd_footer.j2" %}

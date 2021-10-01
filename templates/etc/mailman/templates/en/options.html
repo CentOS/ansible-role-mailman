@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title><MM-Presentable-User> membership configuration for <MM-List-Name></title>
+<link rel="icon" type="image/png" sizes="16x16" href="{{ httpd_assets_url }}/assets/img/favicon.png">
+<link rel="stylesheet" href="{{ httpd_assets_url }}/assets/css/centos-lists.bootstrap.min.css">
+<style>
+body > h3 { display: none; }
+</style>
+</head>
+<body>
+{% include "templates/httpd_navbar.j2" %}
+
+<header class="header header__page">
+<h1 class="header__page__title"><MM-List-Name></h1>
+<p class="header__page__description">Mailing list membership configuration for <MM-Presentable-User>.</p>
+</header>
+<div class="hr">
+<div class="hr__centos-color-0"></div>
+<div class="hr__centos-color-1"></div>
+<div class="hr__centos-color-2"></div>
+<div class="hr__centos-color-3"></div>
+</div>
+<main class="page">
+<article class="page__content">
+<div class="page__content__nav">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="{{ httpd_assets_url }}/">Home</a></li>
+<li class="breadcrumb-item"><a href="https://{{ mailman_url_host }}/">Mailing Lists</a></li>
+<li class="breadcrumb-item"><MM-List-Name> mailing list membership configuration for <MM-Presentable-User></li>
+</ol>
+</div>
+<div class="page__content__mailman__options">
+<div class="row">
+<div class="col">
+<p class="mt-3"><strong><MM-Presentable-User></strong>'s subscription status, password, and options for the <MM-List-Name> mailing list.</p>
+</div>
+<div class="col col-2 text-right">
+<MM-Form-Start><mm-logout-button><MM-Form-End>
+</div>
+</div>
+<div class="row">
+<div class="col">
+<MM-Case-Preserved-User>
+<MM-Disabled-Notice>
+<mm-results>
+</div>
+</div>
+
+<MM-Form-Start>
+<section class="bg-light mt-1 p-3 rounded">
+
+<div class="row">
+<div class="col">
+<p>You can change the address that you are subscribed to the mailing list
+with by entering the new address in the fields below.  Note that a
+confirmation email will be sent to the new address, and the change must
+be confirmed before it is processed.</p>
+
+<p>Confirmations time out after about <mm-pending-days>.</p>
+
+<p>You can also optionally set or change your real name (i.e. <em>John Smith</em>).</p>
+
+<p>If you want to make the membership changes for all the lists that you are subscribed to at <mm-host>, turn on the <em>Change globally</em> check box.</p>
+</div>
+</div>
+
+<div class="row form-inline">
+<div class="col">New address:<br/><mm-confirm-address-box></div>
+<div class="col">Again to confirm:<br/><mm-confirm-address-box></div>
+<div class="col">Your name (optional):<br/><mm-fullname-box></div>
+</div>
+
+<div class="row p-3 form-inline"><mm-global-change-of-address> Change globally</div>
+
+<div class="row">
+<div class="col">
+<mm-change-address-button>
+</div>
+</div>
+</section>
+
+<section class="bg-light mt-1 p-3 rounded">
+<div class="row form-inline">
+<div class="col">
+<h5>Unsubscribing from <MM-List-Name></h5>
+<p>Turn on the confirmation checkbox and hit this button to unsubscribe from this mailing list. <strong>Warning:</strong> This action will be taken immediately!</p>
+<MM-Unsubscribe-Button>
+</div>
+<div class="col">
+<h5>Your other <MM-Host> subscriptions</h5>
+<p>You can view a list of all the other mailing lists at <mm-host> for
+which you are a member.  Use this if you want to make the same
+membership option changes to this other subscriptions.</p>
+<MM-Other-Subscriptions-Submit>
+</div>
+</div>
+</section>
+
+<section class="bg-light mt-1 p-3 rounded">
+<h4>Your <MM-List-Name> Password</h4>
+<div class="row form-group">
+<div class="col">
+<h5>Forgotten Your Password?</h5>
+<div>Click this button to have your password emailed to your membership address.</div>
+<MM-Umbrella-Notice>
+<MM-Email-My-Pw>
+</div>
+<div class="col">
+<h5>Change Your Password</h5>
+<div>New password: <MM-New-Pass-Box></div>
+<div>Again to confirm: <MM-Confirm-Pass-Box></div>
+<div class="mt-3"><MM-Change-Pass-Button></div>
+<div class="m-3"><mm-global-pw-changes-button> Change globally.</div>
+</div>
+</div>
+</section>
+
+<section class="bg-white mt-5">
+<h2>Your <MM-List-Name> Subscription Options</h2>
+<div class="alert alert-warning" role="alert"><strong><i class="fas fa-exclamation-triangle"></i> CAUTION:</strong> Current values are checked.</div>
+<div class="alert alert-info" role="alert"><strong><i class="fas fa-info-circle"></i> NOTE:</strong> Some of
+the options have a <em>Set globally</em> checkbox.  Checking this field
+will cause the changes to be made to every mailing list that you are a
+member of on <mm-host>.  Click on <em>List my other subscriptions</em>
+above to see which other mailing lists you are
+subscribed to.</div>
+
+<div class="row bg-light m-0 p-3 rounded">
+<div class="col">
+<a name="disable"><h5>Mail delivery</h5></a><p>
+Set this option to <em>Enabled</em> to receive messages posted
+to this mailing list.  Set it to <em>Disabled</em> if you want
+to stay subscribed, but don't want mail delivered to you for a
+while (e.g. you're going on vacation).  If you disable mail
+delivery, don't forget to re-enable it when you come back; it
+will not be automatically re-enabled.</p>
+</div>
+<div class="col col-2">
+<mm-delivery-enable-button> Enabled<br/>
+<mm-delivery-disable-button> Disabled<br/>
+<mm-global-deliver-button> <em>Set globally</em>
+</div>
+</div>
+<div class="row bg-white m-1 p-3">
+<div class="col">
+<h5>Set Digest Mode</h5>
+<p>If you turn digest mode on, you'll get posts bundled together
+(usually one per day but possibly more on busy lists), instead
+of singly when they're sent.  If digest mode is changed from
+on to off, you may receive one last digest.</p>
+</div>
+<div class="col col-2">
+<MM-Undigest-Radio-Button> Off<br/>
+<MM-Digest-Radio-Button> On
+</div>
+</div>
+
+<div class="row bg-light m-1 p-3 rounded">
+<div class="col">
+<h5>Get MIME or Plain Text Digests?</h5>
+<p>Your mail reader may or may not support MIME digests.  In
+general MIME digests are preferred, but if you have a problem
+reading them, select plain text digests.</p>
+</div>
+<div class="col col-2">
+<MM-Mime-Digests-Button> MIME<br/>
+<MM-Plain-Digests-Button> Plain Text<br/>
+<mm-global-mime-button> <em>Set globally</em>
+</div>
+</div>
+
+<div class="row bg-white m-1 p-3">
+<div class="col">
+<h5>Receive your own posts to the list?</h5>
+<p>Ordinarily, you will get a copy of every message you post to the
+list.  If you don't want to receive this copy, set this option to
+<em>No</em>.</p>
+</div>
+<div class="col col-2">
+<mm-dont-receive-own-mail-button> No<br/>
+<mm-receive-own-mail-button> Yes
+</div>
+</div>
+
+<div class="row bg-light m-1 p-3 rounded">
+<div class="col">
+<h5>Receive acknowledgement mail when you send mail to the list?</h5>
+</div>
+<div class="col col-2">
+<mm-dont-ack-posts-button> No<br/>
+<mm-ack-posts-button> Yes
+</div>
+</div>
+
+<div class="row bg-white m-1 p-3">
+<div class="col">
+<h5>Get password reminder email for this list?</h5>
+<p>Once a month, you will get an email containing a password reminder
+for every list at this host to which you are subscribed.  You can turn
+this off on a per-list basis by selecting <em>No</em> for this option.
+If you turn off password reminders for all the lists you are subscribed
+to, no reminder email will be sent to you.</p>
+</div>
+<div class="col col-2">
+<mm-dont-get-password-reminder-button> No<br/>
+<mm-get-password-reminder-button> Yes<br/>
+<mm-global-remind-button> <em>Set globally</em>
+</div>
+</div>
+
+<div class="row bg-light m-1 p-3 rounded">
+<div class="col">
+<h5>Conceal yourself from subscriber list?</h5><p>
+<p>When someone views the list membership, your email address is
+normally shown (in an obscured fashion to thwart spam
+harvesters).  If you do not want your email address to show up
+on this membership roster at all, select <em>Yes</em> for this option.</p>
+</div>
+<div class="col col-2">
+<MM-Public-Subscription-Button> No<br/>
+<MM-Hide-Subscription-Button> Yes
+</div>
+</div>
+
+<div class="row bg-white m-1 p-3">
+<div class="col">
+<h5>What language do you prefer?</h5>
+</div>
+<div class="col col-2">
+<MM-list-langs>
+</div>
+</div>
+
+<div class="row bg-light m-1 p-3 rounded">
+<div class="col">
+<h5>Which topic categories would you like to subscribe to?</h5>
+<p>By selecting one or more topics, you can filter the
+traffic on the mailing list, so as to receive only a subset of the
+messages.  If a message matches one of your selected topics, then you
+will get the message, otherwise you will not.</p>
+
+<p>If a message does not match any topic, the delivery rule depends on
+the setting of the option below.  If you do not select any topics of
+interest, you will get all the messages sent to the mailing list.</p>
+</div>
+<div class="col col-2">
+<mm-topics>
+</div>
+</div>
+
+<div class="row bg-white m-1 p-3">
+<div class="col">
+<h5>Do you want to receive messages that do not match any topic filter?</h5>
+<p>This option only takes effect if you've subscribed to at least one
+topic above.  It describes what the default delivery rule is for
+messages that don't match any topic filter.  Selecting <em>No</em>
+says that if the message does not match any topic filters, then you
+won't get the message, while selecting <em>Yes</em> says to deliver
+such non-matching messages to you.</p>
+
+<p>If no topics of interest are selected above, then you will receive
+every message sent to the mailing list.</p>
+</div>
+<div class="col col-2">
+<mm-suppress-nonmatching-topics> No<br/>
+<mm-receive-nonmatching-topics> Yes
+</div>
+</div>
+
+<div class="row bg-light m-1 p-3 rounded">
+<div class="col">
+<h5>Avoid duplicate copies of messages?</h5>
+<p>When you are listed explicitly in the <tt>To:</tt> or <tt>Cc:</tt>
+headers of a list message, you can opt to not receive another copy
+from the mailing list.  Select <em>Yes</em> to avoid receiving copies
+from the mailing list; select <em>No</em> to receive copies.</p>
+
+<p>If the list has member personalized messages enabled, and you
+elect to receive copies, every copy will have a <tt>X-Mailman-Copy:
+yes</tt> header added to it.</p>
+</div>
+<div class="col col-2">
+<mm-receive-duplicates-button> No<br/>
+<mm-dont-receive-duplicates-button> Yes<br/>
+<mm-global-nodupes-button> <em>Set globally</em>
+</div>
+</div>
+<div class="mt-3 text-center"><MM-options-Submit-button></div>
+</section>
+
+<MM-Form-End>
+
+<MM-Mailman-Footer>
+
+</div>
+</article>
+</main>
+
+{% include "templates/httpd_footer.j2" %}

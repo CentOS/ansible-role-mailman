@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title><MM-List-Name> Subscribers</title>
+<link rel="icon" type="image/png" sizes="16x16" href="{{ httpd_assets_url }}/assets/img/favicon.png">
+<link rel="stylesheet" href="{{ httpd_assets_url }}/assets/css/centos-lists.bootstrap.min.css">
+</head>
+<body>
+{% include "templates/httpd_navbar.j2" %}
+
+<header class="header header__page">
+<h1 class="header__page__title"><MM-List-Name></h1>
+<p class="header__page__description">Subscribers</p>
+</header>
+<div class="hr">
+<div class="hr__centos-color-0"></div>
+<div class="hr__centos-color-1"></div>
+<div class="hr__centos-color-2"></div>
+<div class="hr__centos-color-3"></div>
+</div>
+<main class="page">
+<article class="page__content">
+<div class="page__content__nav">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="{{ httpd_assets_url }}/">Home</a></li>
+<li class="breadcrumb-item"><a href="https://{{ mailman_url_host }}/">Mailing Lists</a></li>
+<li class="breadcrumb-item"><MM-List-Name> Subscribers</li>
+</ol>
+</div>
+<div class="page__content__mailman__roster">
+
+<p><MM-lang-form-start><MM-displang-box><MM-list-langs><MM-form-end></p>
+<p>Click on your address to visit your subscription options page.
+<br><em>(parenthesized entries have list delivery disabled.)</em></p>
+
+<table class="table table-borderless">
+<thead class="thead-dark text-center">
+<tr>
+<th><MM-Num-Reg-Users> Non-digested Members of <MM-List-Name>:</th>
+<th><MM-Num-Digesters> Digested Members of <MM-List-Name>: </th>
+</tr>
+</thead>
+<tr valign="top">
+<td>
+<p><MM-Regular-Users>
+</td>
+<td>
+<p><MM-Digest-Users>
+</td>
+</tr>
+</table>
+
+<MM-Mailman-Footer>
+
+</div>
+</article>
+</main>
+
+{% include "templates/httpd_footer.j2" %}

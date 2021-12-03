@@ -1,6 +1,6 @@
 --- /usr/lib/mailman/Mailman/htmlformat.py.orig	2021-12-03 12:20:19.278828085 +0000
-+++ /usr/lib/mailman/Mailman/htmlformat.py	2021-12-03 13:42:43.568351922 +0000
-@@ -307,18 +307,24 @@
++++ /usr/lib/mailman/Mailman/htmlformat.py	2021-12-03 13:59:22.722254766 +0000
+@@ -307,18 +307,22 @@
              kws.setdefault('bgcolor', self.bgcolor)
              tab = ' ' * indent
              output.extend([tab,
@@ -10,11 +10,11 @@
 +                           '<html lang="en">',
 +                           '<head>'
                             ])
-+            output.append('<link rel="shortcut icon" href="%s">' % (mm_cfg.WEB_TPL_FAVICON))
-             if mm_cfg.IMAGE_LOGOS:
+-            if mm_cfg.IMAGE_LOGOS:
 -                output.append('<LINK REL="SHORTCUT ICON" HREF="%s">' %
-+                output.append('<link rel="shortcut icon" href="%s">' %
-                               (mm_cfg.IMAGE_LOGOS + mm_cfg.SHORTCUT_ICON))
+-                              (mm_cfg.IMAGE_LOGOS + mm_cfg.SHORTCUT_ICON))
++            output.append('<link rel="shortcut icon" href="%s">' % (mm_cfg.WEB_TPL_FAVICON))
++
              # Hit all the bases
 -            output.append('<META http-equiv="Content-Type" '
 +            output.append('<meta http-equiv="Content-Type" '
@@ -31,7 +31,7 @@
              quals = []
              # Default link colors
              if mm_cfg.WEB_VLINK_COLOR:
-@@ -329,15 +335,15 @@
+@@ -329,15 +333,15 @@
                  kws.setdefault('link', mm_cfg.WEB_LINK_COLOR)
              for k, v in kws.items():
                  quals.append('%s="%s"' % (k, v))

@@ -1,43 +1,55 @@
---- /usr/lib/mailman/Mailman/htmlformat.py.orig	2021-07-02 20:18:31.909671041 +0000
-+++ /usr/lib/mailman/Mailman/htmlformat.py	2021-07-02 20:35:59.583439905 +0000
-@@ -306,20 +306,19 @@
-         if not self.suppress_head:
+--- /usr/lib/mailman/Mailman/htmlformat.py.orig	2021-12-03 12:20:19.278828085 +0000
++++ /usr/lib/mailman/Mailman/htmlformat.py	2021-12-03 13:42:43.568351922 +0000
+@@ -307,18 +307,24 @@
              kws.setdefault('bgcolor', self.bgcolor)
              tab = ' ' * indent
--            output.extend([tab,
+             output.extend([tab,
 -                           '<HTML>',
 -                           '<HEAD>'
--                           ])
-+            output.extend([tab, 
-+                          '<!DOCTYPE html>',
-+                          '<html lang="en">',
-+                          '<head>'
-+                          ])
++                           '<!DOCTYPE html>',
++                           '<html lang="en">',
++                           '<head>'
+                            ])
++            output.append('<link rel="shortcut icon" href="%s">' % (mm_cfg.WEB_TPL_FAVICON))
              if mm_cfg.IMAGE_LOGOS:
 -                output.append('<LINK REL="SHORTCUT ICON" HREF="%s">' %
--                              (mm_cfg.IMAGE_LOGOS + mm_cfg.SHORTCUT_ICON))
-+                output.append('<link rel="shortcut icon" href="%s">' % (mm_cfg.WEB_TPL_FAVICON))
++                output.append('<link rel="shortcut icon" href="%s">' %
+                               (mm_cfg.IMAGE_LOGOS + mm_cfg.SHORTCUT_ICON))
              # Hit all the bases
 -            output.append('<META http-equiv="Content-Type" '
--                          'content="text/html; charset=%s">' % charset)
-+            output.append('<meta http-equiv="content-type" content="text/html; charset=%s">' % charset)
++            output.append('<meta http-equiv="Content-Type" '
+                           'content="text/html; charset=%s">' % charset)
              if self.title:
 -                output.append('%s<TITLE>%s</TITLE>' % (tab, self.title))
-+                output.append('%s<title>%s</title>' % (tab, self.title))
-             output.append('%s' % (mm_cfg.WEB_TPL_HEAD))
 -            output.append('%s</HEAD>' % tab)
++                output.append('%s<title>%s</title>' % (tab, self.title))
++
++            if mm_cfg.WEB_TPL_HEAD:
++                output.append(mm_cfg.WEB_TPL_HEAD)
++
 +            output.append('%s</head>' % tab)
              quals = []
              # Default link colors
              if mm_cfg.WEB_VLINK_COLOR:
-@@ -341,8 +340,8 @@
-             if mm_cfg.WEB_TPL_BODYCLOSE:
-                 output.append(mm_cfg.WEB_TPL_BODYCLOSE)
-             else:
--                output.append('%s</BODY>' % tab)
--                output.append('%s</HTML>' % tab)
-+                output.append('%s</body>' % tab)
-+                output.append('%s</html>' % tab)
+@@ -329,15 +335,15 @@
+                 kws.setdefault('link', mm_cfg.WEB_LINK_COLOR)
+             for k, v in kws.items():
+                 quals.append('%s="%s"' % (k, v))
+-            output.append('%s<BODY %s' % (tab, SPACE.join(quals)))
+-            # Language direction
+-            direction = Utils.GetDirection(self.language)
+-            output.append('dir="%s">' % direction)
++
++            if mm_cfg.WEB_TPL_BODYSTART:
++                output.append(mm_cfg.WEB_TPL_BODYSTART)
++
+         # Always do this...
+         output.append(Container.Format(self, indent))
+         if not self.suppress_head:
+-            output.append('%s</BODY>' % tab)
+-            output.append('%s</HTML>' % tab)
++            if mm_cfg.WEB_TPL_BODYCLOSE:
++                output.append(mm_cfg.WEB_TPL_BODYCLOSE)
          return NL.join(output)
  
      def addError(self, errmsg, tag=None):

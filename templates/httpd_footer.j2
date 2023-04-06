@@ -1,66 +1,54 @@
-<div class="hr">
-  <div class="hr__centos-color-0"></div>
-  <div class="hr__centos-color-1"></div>
-  <div class="hr__centos-color-2"></div>
-  <div class="hr__centos-color-3"></div>
+<footer class="footer pt-3 bg-dark small text-light">
+
+<div class="container">
+  <div class="row justify-content-between mt-4 pt-4">
+    <div class="col-lg-3 mb-5">
+      <a class="navbar-brand" href="{{ site.baseurl }}/{{ site.data.centos.identity.logo.link }}"><img role="img" src="{{ site.baseurl }}/{{ site.data.centos.identity.logo.navbar }}" height="32" alt="{{ site.data.centos.identity.name }}"><span class="manifestation">{{ site.data.centos.identity.logo.manifestation }}</span></a>
+      <p class="my-3">{{ site.data.centos.identity.description }}</p>
+      <ul class="nav list-unstyled d-flex">
+        {% for item in site.data.centos.footer.social %}
+        <li class="nav-item me-4 fs-5"><a href="{{ item.link }}" role="button" aria-label="{{ item.name }}" class="link-light"><i class="{{ item.icon }}"></i></a></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    {% for section in site.data.centos.navbar if section.menu | length > 0 %}
+    <div class="col-sm-12 col-lg-3 mb-3">
+      <h6 class="text-uppercase fw-bold">{{ section.name }}</h6>
+      <ul class="nav flex-column">
+        {% for item in section.menu %}
+        <li class="nav-item my-1"><a href="{{ item.link }}" class="px-0 link-light">{{ item.name }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="row py-5">
+    <div class="col">Copyright &copy; {{ ansible_facts.date_time.year }} {{ site.data.centos.footer.copyright.author }} {% for item in site.data.centos.footer.copyright.legals %} | <span class="nav-item"><a href="{{ item.link }}" class="link-light">{{ item.text }}</a></span>{% endfor %}</div>
+  </div>
+
 </div>
 
-<footer class="footer">
-<div class="container">
-<div class="row">
-<section class="sponsor">
-<div class="sponsor__message">
-<h6><i class="fas fa-hand-holding-heart"></i> Sponsor</h6>
-<p>This site would not be possible without the support of <a href="{{ httpd_sponsor.link }}">{{ httpd_sponsor.name }}</a>. We would like to thank <a href="http://steadfast.net/">steadfast</a> for being a CentOS sponsor. If you value our work, please consider <a href="{{ httpd_assets_url }}/sponsors/">becoming a sponsor</a>!</p>
-</div>
-<div class="sponsor__logo">
-<div class="carousel">
-<div class="card">
-<div class="carousel slide carousel-fade" data-ride="carousel" id="carousel-1">
-<div class="carousel-inner" role="listbox">
-<div class="carousel-item active">
-<a href="{{ httpd_sponsor.link }}" rel="nofollow"><img src="{{ httpd_sponsor.image_src }}"></a></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-</div>
-<div class="row">
-{% for section in httpd_navbar if section.name == "About" or section.name == "Community" %}
-<section class="links">
-<h6><i class="{{ section.icon }}"></i> {{ section.name }}</h6>
-<ul>
-{% for item in section.menu %}
-<li><a href="{{ item.link }}">{{ item.name }}</a></li>
-{% endfor %}
-</ul>
-</section>
-{% endfor %}
-<section class="project">
-<h4>The CentOS Project</h4>
-<p class="lead">Community-driven free software effort focused around the goal of providing a rich base platform for open source communities to build upon.</p>
-<div class="lead social">
-{% for item in httpd_social %}
-<a href="{{ item.link }}"><i class="{{ item.icon }}"></i></a>
-{% endfor %}
-</div>
-</section>
-</div>
-<div class="row">
-<section class="copyright">
-<p>Copyright &copy; {{ httpd_copyright.year }} {{ httpd_copyright.author }} {% for item in httpd_copyright.legals %} | <a href="{{ item.link }}">{{ item.text }}</a>{% endfor %}</p>
-</section>
-</div>
-</div>
-<div id="topbtn" style="">
-<a href="#top"><button title="Page top" type="button" data-toggle="tooltip" class="btn btn-light"><i class="fas fa-arrow-up"></i></button></a>
-</div>
 </footer>
 
-<script src="{{ httpd_assets_url }}/assets/js/jquery.min.js"></script>
-<script src="{{ httpd_assets_url }}/assets/js/bootstrap.min.js"></script>
-<script src="{{ httpd_assets_url }}/assets/js/customization.js"></script>
-</body>
-</html>
+<!-- JQuery -->
+<script src="{{ site.baseurl }}/assets/js/jquery.min.js"></script>
+
+<!-- BackToTop -->
+<script src="{{ site.baseurl }}/assets/js/vanilla-back-to-top.min.js"></script>
+<script>
+  addBackToTop({
+    diameter: 56,
+    backgroundColor: "rgb(32, 7, 53)",
+    textColor: "#fff",
+  });
+</script>
+
+<!-- Bootstrap -->
+<script src="{{ site.baseurl }}/assets/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Initialize Tooltips
+  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+  const tooltipList = [...tooltipTriggerList].map((tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl));
+</script>

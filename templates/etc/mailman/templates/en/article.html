@@ -2,40 +2,38 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <meta name="robots" content="noindex,follow">
-<title>%(title)s</title>
-<link rel="index" href="index.html" >
+{{ mailman_html_tpl_head }}
+<link rel="index" href="index.html">
 <link rel="made" href="mailto:%(email_url)s?subject=re:%%20%(subject_url)s&in-reply-to=%(in_reply_to_url)s">
+<title>%(title)s</title>
 %(prev)s
 %(next)s
-<link rel="icon" type="image/png" sizes="16x16" href="{{ httpd_assets_url }}/assets/img/favicon.png">
-<link rel="stylesheet" href="{{ httpd_assets_url }}/assets/css/centos-lists.bootstrap.min.css">
 </head>
-<body>
+<body id="top">
+
 {% include "templates/httpd_navbar.j2" %}
 
-<header class="header header__page">
-<h1 class="header__page__title">%(subject_html)s</h1>
-<p class="header__page__description">%(datestr_html)s <br/> %(author_html)s &lt;<a href="mailto:%(email_url)s?Subject=Re:%%20%(subject_url)s&In-Reply-To=%(in_reply_to_url)s" title="%(subject_html)s">%(email_html)s</a>&gt;</p>
-</header>
-<div class="hr">
-<div class="hr__centos-color-0"></div>
-<div class="hr__centos-color-1"></div>
-<div class="hr__centos-color-2"></div>
-<div class="hr__centos-color-3"></div>
+<main>
+
+<div class="bg-dark bg-image">
+<div class="container py-5 text-light">
+<div class="row">
+<div class="col">
+<div class="display-4 my-4 fw-bold">%(subject_html)s</div>
+<div class="lead">%(datestr_html)s <br/> %(author_html)s &lt;<a href="mailto:%(email_url)s?Subject=Re:%%20%(subject_url)s&In-Reply-To=%(in_reply_to_url)s" title="%(subject_html)s">%(email_html)s</a>&gt;</div>
 </div>
-<main class="aside">
-<article class="aside__content">
-<div class="aside__content__mailman__article">
-<!--beginarticle-->
-%(body)s
-<!--endarticle-->
 </div>
-</article>
-<aside class="aside__nav">
+</div>
+</div>
+
+<div id="article" class="container py-5">
+
+<div class="row">
+<div class="col">
+<nav class="mb-5" aria-label="breadcrumb">
 <ol class="breadcrumb">
-<li class="breadcrumb-item"><a href="{{ httpd_assets_url }}/">Home</a></li>
+<li class="breadcrumb-item"><a href="{{ site.baseurl }}/">Home</a></li>
 <li class="breadcrumb-item"><a href="https://{{ mailman_url_host }}">Mailing Lists</a></li>
 <li class="breadcrumb-item"><a href="%(listurl)s">%(listname)s</a></li>
 <li class="breadcrumb-item active">Archives
@@ -46,14 +44,32 @@
 </li>
 <li class="breadcrumb-item active">%(title)s</li>
 </ol>
-<div class="toc">
-<ul>
+</nav>
+</div>
+</div>
+
+<nav class="mb-4 border-bottom" aria-label="Threads top navigation">
+<ul class="list-unstyled">
 <!--threads-->
 %(prev_wsubj)s
 %(next_wsubj)s
 </ul>
+</nav>
+
+<!--beginarticle-->
+%(body)s
+<!--endarticle-->
+
+<nav class="pt-4 border-top" aria-label="Threads bottom navigation">
+<ul class="list-unstyled">
+<!--threads-->
+%(prev_wsubj)s
+%(next_wsubj)s
+</ul>
+</nav>
+
 </div>
-</aside>
+
 </main>
 
 {% include "templates/httpd_footer.j2" %}

@@ -2,26 +2,50 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<meta name="robots" content="noindex,follow">
-<title>%(listname)s Archive %(archive)s by %(archtype)s</title>
-<link rel="icon" type="image/png" sizes="16x16" href="{{ httpd_assets_url }}/assets/img/favicon.png">
-<link rel="stylesheet" href="{{ httpd_assets_url }}/assets/css/centos-lists.bootstrap.min.css">
+{{ mailman_html_tpl_head }}
+<title>%(listname)s Archive Messages</title>
 </head>
-<body>
+<body id="top">
+
 {% include "templates/httpd_navbar.j2" %}
 
-<header class="header header__page">
-<h1 class="header__page__title">%(listname)s</h1>
-<p class="header__page__description">Archive %(archive)s, starting %(firstdate)s, ending %(lastdate)s.<br/>Viewing %(size)s messages by %(archtype)s.</p>
-</header>
-<div class="hr">
-<div class="hr__centos-color-0"></div>
-<div class="hr__centos-color-1"></div>
-<div class="hr__centos-color-2"></div>
-<div class="hr__centos-color-3"></div>
+<main>
+
+<div class="bg-dark bg-image">
+<div class="container py-5 text-light">
+<div class="row">
+<div class="col">
+<div class="display-4 my-4 fw-bold">%(listname)s</div>
+<div class="lead">Archive Messages</div>
 </div>
-<main class="aside">
-<article class="aside__content">
-<div class="aside__content__mailman__archidxhead">
-<ul class="messages-entries">
+</div>
+</div>
+</div>
+
+<div id="archidxhead" class="container py-5">
+
+<div class="row">
+<div class="col">
+<nav class="mb-5" aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="{{ site.baseurl }}/">Home</a></li>
+<li class="breadcrumb-item"><a href="https://{{ mailman_url_host }}">Mailing Lists</a></li>
+<li class="breadcrumb-item"><a href="%(listinfo)s">%(listname)s</a></li>
+<li class="breadcrumb-item active">Archive Messages</li>
+</ol>
+</nav>
+</div>
+</div>
+
+<div class="row">
+<div class="col">
+<nav class="mb-3 border-bottom" aria-label="Archive messages top navigation">
+<ul class="list-unstyled">
+  <li><strong>Messages sorted by:</strong> %(thread_ref)s %(subject_ref)s %(author_ref)s %(date_ref)s</li>
+  <li><strong>Last message date:</strong> %(lastdate)s</li>
+</ul>
+</nav>
+</div>
+</div>
+
+<ul class="list-unstyled">

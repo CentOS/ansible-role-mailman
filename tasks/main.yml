@@ -1,4 +1,18 @@
 # Defaults tasks for role mailman
+---
+- name: Download jekyll-theme-centos data files into defaults
+  ansible.builtin.unarchive:
+    src: "{{ item }}"
+    dest: "{{ role_path }}/defaults/"
+    remote_src: true
+  loop:
+    - https://gitlab.com/CentOS/artwork/centos-web/jekyll-theme-centos-navbar/-/archive/{{ site_navbar_version }}/jekyll-theme-centos-navbar-{{ site_navbar_version }}.tar.gz
+    - https://gitlab.com/CentOS/artwork/centos-web/jekyll-theme-centos-identity/-/archive/{{ site_identity_version }}/jekyll-theme-centos-identity-{{ site_identity_version }}.tar.gz
+    - https://gitlab.com/CentOS/artwork/centos-web/jekyll-theme-centos-footer/-/archive/{{ site_footer_version }}/jekyll-theme-centos-footer-{{ site_footer_version }}.tar.gz
+  delegate_to: localhost
+  become: false
+  tags:
+    - theme
 
 - name: pkgs should be installed for mailman
   yum:
@@ -7,7 +21,7 @@
 
 - name: MailMan config
   template:
-    src: mm_cfg.py.j2 
+    src: mm_cfg.py.j2
     dest: /etc/mailman/mm_cfg.py
     mode: 0644
   notify:
@@ -19,7 +33,7 @@
   shell: "/usr/lib/mailman/bin/mmsitepass {{ mailman_admin_pass }}"
   args:
     creates: /etc/mailman/adm.pw
-  no_log: True  
+  no_log: True
 
 - name: Ensuring we can drop mailman list configs
   file:

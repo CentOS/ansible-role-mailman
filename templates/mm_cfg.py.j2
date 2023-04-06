@@ -108,7 +108,7 @@ RECAPTCHA_PUBLIC_KEY = '{{ mailman_recaptcha_pub_key }}'
 {% endif %}
 
 # Theme settings
-WEB_TPL_FAVICON = "{{ httpd_assets_url }}/assets/img/favicon.png"
+WEB_TPL_FAVICON = "{{ site.baseurl }}/assets/icons/favicon.svg\" sizes=\"any"
 WEB_TPL_HEAD = """
 {{ mailman_html_tpl_head }}
 """
@@ -120,4 +120,7 @@ WEB_TPL_BODYCLOSE = """
 {{ mailman_html_tpl_bodyclose }}
 {% include "templates/httpd_footer.j2" %}
 """
-
+WEB_HEADER_COLOR = '#ffffff'    # Major section headers
+WEB_SUBHEADER_COLOR = '#ffffff' # Minor section headers
+WEB_ADMINITEM_COLOR = '#f2f2f2' # Option field background
+WEB_HIGHLIGHT_COLOR = '#f2f2f2' # If true, alternating rows

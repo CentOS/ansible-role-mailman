@@ -33,142 +33,56 @@ mailman_httpd_hostname: "{{ mailman_url_host }}"
 # html templates injected into mailman python code
 mailman_html_tpl_head: |
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <link rel="stylesheet" href="{{ httpd_assets_url }}/assets/css/centos-lists.bootstrap.min.css">
+  <link rel="icon" href="{{ site.baseurl }}/assets/icons/favicon-16.png" sizes="16x16">
+  <link rel="icon" href="{{ site.baseurl }}/assets/icons/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="{{ site.baseurl }}/assets/icons/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="{{ site.baseurl }}/site.webmanifest">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/stylesheet.lists.min.css">
   
 mailman_html_tpl_bodystart: |
-  <header class="header header__page">
-  <h1 class="header__page__title">Mailing Lists</h1>
-  </header>
-  <div class="hr">
-  <div class="hr__centos-color-0"></div>
-  <div class="hr__centos-color-1"></div>
-  <div class="hr__centos-color-2"></div>
-  <div class="hr__centos-color-3"></div>
+  <body id="top">
+  <main>
+  <div class="bg-dark bg-image">
+  <div class="container py-5 text-light">
+  <div class="row">
+  <div class="col">
+  <div class="display-4 my-4 fw-bold">Mailing Lists</div>
   </div>
-  <main class="page">
-  <article class="page__content">
-  <div class="page__content__nav">
+  </div>
+  </div>
+  </div>
+  <div id="mmcfg" class="container py-5">
+  <div class="row">
+  <div class="col">
+  <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-  <li class="breadcrumb-item"><a href="{{ httpd_assets_url }}/">Home</a></li>
+  <li class="breadcrumb-item"><a href="{{ site.baseurl }}/">Home</a></li>
   <li class="breadcrumb-item">Mailing Lists</li>
   </ol>
+  </nav>
   </div>
-  <div class="page__content__mailman__welcome">
+  </div>
     
 mailman_html_tpl_bodyclose: |
   </div>
-  </article>
   </main>
 
-
 # ===============================================================================
-# httpd_assets_url - Set assets url (without trailing slash).
+# site.data.centos - This variable contains shared YAML definitions for all
+# CentOS websites. The main idea here is to have a single place for data
+# definition (the jekyll _data/centos/ directory) and import it anywhere it is
+# necessary, using the same variable definition the jekyll uses on includes.
 #
-# Here is were css, images and js files will be retrieved from. This is
-# normally "https://www.centos.org" in production and
-# "https://www.dev.centos.org" in development. When we change the main site
-# design all other sites based on it will be changed as well and there won't be
-# necessary to maintain separated files. In order for this to work, origin
-# domains must be specified in httpd_www_cors option.
-#
-# This variable should be defined in a high scope location (e.g., under
-# `group_vars/all.yml`, or `group_vars/webistes.yml`) so all website-related
-# playbooks you run can take advantage of it reducing the number of places you
-# need to change.
+# NOTE: The depth in the variable definition is intentional to reuse the HTML
+# code used in jekyll sites, exactly as is.
 # ===============================================================================
-httpd_assets_url: "https://www.centos.org"
-
-
-# ===============================================================================
-# httpd_navbar - Set website navigation bar. 
-#
-# The navigation bar is visible on the very top of each CentOS website, where
-# the CentOS logo and the top-level-always-visible links are placed. The navbar
-# can contain both links and menu of links so you can group them. Menus by
-# default are hidden and are visible when the user clicks the item that has the
-# arrow pointing down on right side.
-#
-# The navigation bar the httpd_navbar variable defines is re-used in different
-# website templates (e.g., mailman, wordpress-theme).  For consistency, it must
-# match the content the `_data/centos/navbar.yml` file provides in
-# www.centos.org site.
-#
-# This variable should be defined in a high scope location (e.g., under
-# `group_vars/all.yml`, or `group_vars/webistes.yml`) so all website-related
-# playbooks you run can take advantage of it reducing the number of places you
-# need to change.
-#
-# When you define link inside the navbar, use `httpd_assets_url` variable as
-# much as possible to keep navigability among different environments (e.g.,
-# www.dev.centos.org and www.centos.org).  See `httpd_assets_url` block in this
-# file to know more.
-# ===============================================================================
-httpd_navbar:
-  - name: "Download"
-    icon: "fas fa-download"
-    link: "{{ httpd_assets_url }}/download"
-    menu: []
-  - name: "About"
-    icon: "fas fa-info-circle"
-    link: "#"
-    menu:
-      - name: "About CentOS"
-        link: "{{ httpd_assets_url }}/about"
-      - name: "Frequently Asked Questions (FAQs)"
-        link: "https://wiki.centos.org/FAQ"
-      - name: "Special Interest Groups (SIGs)"
-        link: "https://wiki.centos.org/SpecialInterestGroups"
-      - name: "CentOS Variants"
-        link: "{{ httpd_assets_url }}/variants"
-      - name: "Governance"
-        link: "{{ httpd_assets_url }}/about/governance"
-      - name: "Code of Conduct"
-        link: "{{ httpd_assets_url }}/code-of-conduct"
-
-
-# ===============================================================================
-# httpd_social - List of links to social networks.
-#
-# This variable should be defined in a high scope location (e.g., under
-# `group_vars/all.yml`, or `group_vars/webistes.yml`) so all website-related
-# playbooks you run can take advantage of it reducing the number of places you
-# need to change.
-# ===============================================================================
-httpd_social:
-  - icon: "fab fa-twitter"
-    link: "https://twitter.com/centosproject"
-  - icon: "fab fa-youtube"
-    link: "https://youtube.com/TheCentOSProject"
-  - icon: "fab fa-linkedin"
-    link: "https://www.linkedin.com/groups/22405"
-  - icon: "fab fa-reddit"
-    link: "https://www.reddit.com/r/CentOS/"
-
-
-# ===============================================================================
-# httpd_copyright - Set copyright sentence and related links.
-#
-# This variable should be defined in a high scope location (e.g., under
-# `group_vars/all.yml`, or `group_vars/webistes.yml`) so all website-related
-# playbooks you run can take advantage of it reducing the number of places you
-# need to change.
-# ===============================================================================
-httpd_copyright:
-  author: "The CentOS Project"
-  year: "{{ ansible_facts.date_time.year }}"
-  legals:
-    - text: "Legal"
-      link: "{{ httpd_assets_url }}/legal"
-    - text: "Privacy"
-      link: "{{ httpd_assets_url }}/legal/privacy"
-    - text: "Site source"
-      link: "https://git.centos.org/centos/centos.org"
-
-
-# ===============================================================================
-# httpd_sponsor - Set site sponsor
-# ===============================================================================
-httpd_sponsor:
-  name: "steadfast"
-  link: "http://steadfast.net/"
-  image_src: "{{ httpd_assets_url }}/assets/img/sponsors/steadfast.png"
+site_footer_version: v1.0.1-beta.1
+site_identity_version: v1.0.1-beta.1
+site_navbar_version: v1.0.1-beta.2
+site:
+  baseurl: "https://www.dev.centos.org"
+  data:
+    centos:
+      footer: "{{ lookup('file', '{{ role_path }}/defaults/jekyll-theme-centos-footer-{{ site_footer_version }}/src/_data/centos/footer.yml') | from_yaml }}"
+      identity: "{{ lookup('file', '{{ role_path }}/defaults/jekyll-theme-centos-identity-{{ site_identity_version }}/src/_data/centos/identity.yml') | from_yaml }}"
+      navbar: "{{ lookup('file', '{{ role_path }}/defaults/jekyll-theme-centos-navbar-{{ site_navbar_version }}/src/_data/centos/navbar.yml') | from_yaml }}"

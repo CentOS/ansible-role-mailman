@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+{{ mailman_html_tpl_head }}
 <title>%(listname)s %(who)s Authentication</title>
-<link rel="icon" type="image/png" sizes="16x16" href="{{ httpd_assets_url }}/assets/img/favicon.png">
-<link rel="stylesheet" href="{{ httpd_assets_url }}/assets/css/centos-lists.bootstrap.min.css">
 </head>
-<body>
+
+<body id="top">
+
 {% include "templates/httpd_navbar.j2" %}
 
-<header class="header header__page">
-<h1 class="header__page__title">%(listname)s</h1>
-<p class="header__page__description">%(who)s Authentication</p>
-</header>
+<main>
 
-<div class="hr">
-<div class="hr__centos-color-0"></div>
-<div class="hr__centos-color-1"></div>
-<div class="hr__centos-color-2"></div>
-<div class="hr__centos-color-3"></div>
+<div class="bg-dark bg-image">
+<div class="container py-5 text-light">
+<div class="row">
+<div class="col">
+<div class="display-4 my-4 fw-bold">%(listname)s</div>
+<div class="lead">%(who)s Authentication</div>
+</div>
+</div>
+</div>
 </div>
 
-<main class="page">
-<article class="page__content">
-<div class="page__content__nav">
+<div id="admlogin" class="container py-5">
+
+<div class="row">
+<div class="col">
+<nav class="mb-5" aria-label="breadcrumb">
 <ol class="breadcrumb">
-<li class="breadcrumb-item"><a href="{{ httpd_assets_url }}/">Home</a></li>
+<li class="breadcrumb-item"><a href="{{ site.baseurl }}/">Home</a></li>
 <li class="breadcrumb-item"><a href="https://{{ mailman_url_host }}">Mailing Lists</a></li>
 <li class="breadcrumb-item">%(listname)s %(who)s Authentication</li>
 </ol>
+</nav>
 </div>
-<div class="page__content__mailman__admlogin">
+</div>
 
 %(message)s
 
 <form method="post" action="%(path)s" name="f">
-<div class="form-group mb-4 mt-4">
+<div class="form-group mb-4">
 <div class="row">
 <div class="col">
 <input type="password" name="adminpw" class="form-control" id="adminpw" placeholder="Password" aria-describedby="adminpw">
@@ -49,8 +52,8 @@
 </div>
 </form>
 
-<div class="alert alert-primary" role="alert">
-<h4 class="alert-heading">Important!</h4>
+<div class="alert alert-secondary" role="alert">
+<h4 class="alert-heading"><i class="fa-solid fa-triangle-exclamation"></i> Important!</h4>
 <p>From this point on, you must have cookies enabled in your browser, otherwise no administrative changes will take effect.</p>
 <hr/>
 <p class="mb-0">Session cookies are used in Mailman's administrative interface so that you don't need to re-authenticate with every administrative operation.  This cookie will expire automatically when you exit your browser, or you can explicitly expire the cookie by hitting the <em>Logout</em> link under <em>Other Administrative Activities</em> (which you'll see once you successfully log in).</p>

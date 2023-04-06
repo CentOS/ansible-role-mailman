@@ -2,35 +2,39 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+{{ mailman_html_tpl_head }}
 <title>%(realname)s Private Archives Authentication</title>
-<link rel="icon" type="image/png" sizes="16x16" href="{{ httpd_assets_url }}/assets/img/favicon.png">
-<link rel="stylesheet" href="{{ httpd_assets_url }}/assets/css/centos-lists.bootstrap.min.css">
 </head>
-<body>
+<body id="top">
+
 {% include "templates/httpd_navbar.j2" %}
 
-<header class="header header__page">
-<h1 class="header__page__title">%(realname)s</h1>
-<p class="header__page__description">Private archives authentication.</p>
-</header>
+<main>
 
-<div class="hr">
-<div class="hr__centos-color-0"></div>
-<div class="hr__centos-color-1"></div>
-<div class="hr__centos-color-2"></div>
-<div class="hr__centos-color-3"></div>
+<div class="bg-dark bg-image">
+<div class="container py-5 text-light">
+<div class="row">
+<div class="col">
+<div class="display-4 my-4 fw-bold">%(realname)s</div>
+<div class="lead">Private archives authentication.</div>
 </div>
-<main class="page">
-<article class="page__content">
-<div class="page__content__nav">
+</div>
+</div>
+</div>
+
+<div id="private" class="container py-5">
+
+<div class="row">
+<div class="col">
+<nav class="mb-5" aria-label="breadcrumb">
 <ol class="breadcrumb">
-<li class="breadcrumb-item"><a href="{{ httpd_assets_url }}/">Home</a></li>
+<li class="breadcrumb-item"><a href="{{ site.baseurl }}/">Home</a></li>
 <li class="breadcrumb-item"><a href="https://{{ mailman_url_host }}/">Mailing Lists</a></li>
 <li class="breadcrumb-item">%(realname) private archives authentication</li>
 </ol>
+</nav>
 </div>
-<div class="page__content__mailman__private">
+</div>
 
 <form method="post" action="%(action)s" name="f">
 %(message)s
@@ -54,15 +58,17 @@
 </tr>
 </table>
 
-<p><strong><em>Important:</em></strong> From this point on, you must have
+<div class="alert alert-primary" role="alert">
+<p><strong>Important:</strong> From this point on, you must have
 cookies enabled in your browser, otherwise you will have to re-authenticate
-with every operation.
+with every operation.</p>
+</div>
 
 <p>Session cookies are used in Mailman's private archive interface so that
 you don't need to re-authenticate with every operation.  This cookie will
 expire automatically when you exit your browser, or you can explicitly
 expire the cookie by visiting your member options page and clicking the
-<em>Log out</em> button.  <p>
+<em>Log out</em> button.</p>
 
 <table class="table">
 <tr>
@@ -82,7 +88,7 @@ password will be emailed to you.</td>
 </form>
 
 </div>
-</article>
+
 </main>
 
 {% include "templates/httpd_footer.j2" %}

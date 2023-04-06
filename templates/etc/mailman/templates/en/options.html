@@ -2,87 +2,73 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+{{ mailman_html_tpl_head }}
 <title><MM-Presentable-User> membership configuration for <MM-List-Name></title>
-<link rel="icon" type="image/png" sizes="16x16" href="{{ httpd_assets_url }}/assets/img/favicon.png">
-<link rel="stylesheet" href="{{ httpd_assets_url }}/assets/css/centos-lists.bootstrap.min.css">
-<style>
-body > h3 { display: none; }
-</style>
 </head>
-<body>
+<body id="top">
+
 {% include "templates/httpd_navbar.j2" %}
 
-<header class="header header__page">
-<h1 class="header__page__title"><MM-List-Name></h1>
-<p class="header__page__description">Mailing list membership configuration for <MM-Presentable-User>.</p>
-</header>
-<div class="hr">
-<div class="hr__centos-color-0"></div>
-<div class="hr__centos-color-1"></div>
-<div class="hr__centos-color-2"></div>
-<div class="hr__centos-color-3"></div>
+<main>
+
+<div class="bg-dark bg-image">
+<div class="container py-5 text-light">
+<div class="row">
+<div class="col">
+<div class="display-4 my-4 fw-bold"><MM-List-Name></div>
+<div class="lead">Mailing list membership configuration for <MM-Presentable-User>.</div>
 </div>
-<main class="page">
-<article class="page__content">
-<div class="page__content__nav">
+</div>
+</div>
+</div>
+
+<div id="options" class="container py-5">
+
+<div class="row">
+<div class="col">
+<nav class="mb-5" aria-label="breadcrumb">
 <ol class="breadcrumb">
-<li class="breadcrumb-item"><a href="{{ httpd_assets_url }}/">Home</a></li>
+<li class="breadcrumb-item"><a href="{{ site.baseurl }}/">Home</a></li>
 <li class="breadcrumb-item"><a href="https://{{ mailman_url_host }}/">Mailing Lists</a></li>
 <li class="breadcrumb-item"><MM-List-Name> mailing list membership configuration for <MM-Presentable-User></li>
 </ol>
-</div>
-<div class="page__content__mailman__options">
-<div class="row">
-<div class="col">
-<p class="mt-3"><strong><MM-Presentable-User></strong>'s subscription status, password, and options for the <MM-List-Name> mailing list.</p>
-</div>
-<div class="col col-2 text-right">
-<MM-Form-Start><mm-logout-button><MM-Form-End>
+</nav>
 </div>
 </div>
-<div class="row">
-<div class="col">
+
+<p><strong><MM-Presentable-User></strong>'s subscription status, password, and options for the <MM-List-Name> mailing list.</p>
+
+<p><MM-Form-Start><mm-logout-button><MM-Form-End></p>
+
 <MM-Case-Preserved-User>
+
 <MM-Disabled-Notice>
+
 <mm-results>
-</div>
-</div>
 
 <MM-Form-Start>
-<section class="bg-light mt-1 p-3 rounded">
 
-<div class="row">
-<div class="col">
-<p>You can change the address that you are subscribed to the mailing list
-with by entering the new address in the fields below.  Note that a
-confirmation email will be sent to the new address, and the change must
-be confirmed before it is processed.</p>
+<p>You can change the address that you are subscribed to the mailing list with by entering the new address in the fields below.  Note that a confirmation email will be sent to the new address, and the change must be confirmed before it is processed.</p>
 
 <p>Confirmations time out after about <mm-pending-days>.</p>
 
 <p>You can also optionally set or change your real name (i.e. <em>John Smith</em>).</p>
 
 <p>If you want to make the membership changes for all the lists that you are subscribed to at <mm-host>, turn on the <em>Change globally</em> check box.</p>
-</div>
-</div>
 
-<div class="row form-inline">
+<div class="row mb-3">
 <div class="col">New address:<br/><mm-confirm-address-box></div>
 <div class="col">Again to confirm:<br/><mm-confirm-address-box></div>
 <div class="col">Your name (optional):<br/><mm-fullname-box></div>
+<div class="col">Change globally:<br/><mm-global-change-of-address></div>
 </div>
 
-<div class="row p-3 form-inline"><mm-global-change-of-address> Change globally</div>
-
-<div class="row">
+<div class="row mb-3">
 <div class="col">
 <mm-change-address-button>
 </div>
 </div>
-</section>
 
-<section class="bg-light mt-1 p-3 rounded">
 <div class="row form-inline">
 <div class="col">
 <h5>Unsubscribing from <MM-List-Name></h5>
@@ -97,10 +83,9 @@ membership option changes to this other subscriptions.</p>
 <MM-Other-Subscriptions-Submit>
 </div>
 </div>
-</section>
 
-<section class="bg-light mt-1 p-3 rounded">
 <h4>Your <MM-List-Name> Password</h4>
+
 <div class="row form-group">
 <div class="col">
 <h5>Forgotten Your Password?</h5>
@@ -116,9 +101,7 @@ membership option changes to this other subscriptions.</p>
 <div class="m-3"><mm-global-pw-changes-button> Change globally.</div>
 </div>
 </div>
-</section>
 
-<section class="bg-white mt-5">
 <h2>Your <MM-List-Name> Subscription Options</h2>
 <div class="alert alert-warning" role="alert"><strong><i class="fas fa-exclamation-triangle"></i> CAUTION:</strong> Current values are checked.</div>
 <div class="alert alert-info" role="alert"><strong><i class="fas fa-info-circle"></i> NOTE:</strong> Some of
@@ -288,15 +271,15 @@ yes</tt> header added to it.</p>
 <mm-global-nodupes-button> <em>Set globally</em>
 </div>
 </div>
+
 <div class="mt-3 text-center"><MM-options-Submit-button></div>
-</section>
 
 <MM-Form-End>
 
 <MM-Mailman-Footer>
 
 </div>
-</article>
+
 </main>
 
 {% include "templates/httpd_footer.j2" %}
